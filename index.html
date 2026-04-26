@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evals Reporting · Executive Overview</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ============== Sidebar ============== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+            <rect x="7" y="9" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="brand-name">EVALS REPORTING</div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Overview</div>
+        <a class="nav-item active" href="index.html"><span class="nav-icon">●</span> Executive Overview</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Main components</div>
+        <a class="nav-item" href="#"><span class="nav-icon">▦</span> Dataset Coverage</a>
+        <a class="nav-item" href="glossary-coverage.html"><span class="nav-icon">▤</span> Glossary Coverage</a>
+        <a class="nav-item" href="benchmark-evaluation.html"><span class="nav-icon">◎</span> Benchmark Evaluation</a>
+        <a class="nav-item" href="#"><span class="nav-icon">▥</span> Glossary Consumption</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Reference</div>
+        <a class="nav-item" href="#"><span class="nav-icon">▭</span> Metrics Definitions</a>
+      </div>
+
+      <div class="sidebar-foot">
+        <div class="data-block">
+          <div class="label">DATA</div>
+          <div>Last refreshed</div>
+          <div style="color:#fff">2026-04-24 12:59 UTC</div>
+        </div>
+        <span class="refresh">↻ Refresh data</span>
+        <div style="margin-top:14px; opacity:0.6">transvoice · v0.1.0</div>
+      </div>
+    </aside>
+
+    <!-- ============== Main ============== -->
+    <main class="main">
+
+      <header class="page-header">
+        <div class="crumbs">Overview</div>
+        <h1>Executive Overview</h1>
+        <p>Status of the AI interpreter at a glance — quality, coverage, stability, and what to do next.</p>
+      </header>
+
+      <!-- ============== 1. Executive KPI strip ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">1 · How is the product performing?</div>
+          <div class="section-sub">5 KPIs · vs. previous period · target shown below each value</div>
+        </div>
+
+        <div class="kpi-grid">
+
+          <!-- KPI 1: Translation quality -->
+          <div class="kpi warn">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <span class="kpi-label">Translation quality</span>
+              <span class="status-pill warn"><span class="dot"></span>Watch</span>
+            </div>
+            <div class="kpi-value">65–70%</div>
+            <div class="kpi-meta">
+              <span class="kpi-target">Target ≥ 80%</span>
+              <span class="kpi-delta up">▲ slight</span>
+            </div>
+            <div class="kpi-interp">AI interprets correctly in ~2 of 3 cases. Below target for critical use.</div>
+          </div>
+
+          <!-- KPI 2: Terminology accuracy -->
+          <div class="kpi warn">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <span class="kpi-label">Terminology accuracy</span>
+              <span class="status-pill warn"><span class="dot"></span>Watch</span>
+            </div>
+            <div class="kpi-value">65–70%</div>
+            <div class="kpi-meta">
+              <span class="kpi-target">Target ≥ 80%</span>
+              <span class="kpi-delta up">▲ slight</span>
+            </div>
+            <div class="kpi-interp">Specialist terms used correctly in ~2 of 3 cases. Biggest quality gap.</div>
+          </div>
+
+          <!-- KPI 3: Glossary coverage -->
+          <div class="kpi bad">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <span class="kpi-label">Glossary coverage</span>
+              <span class="status-pill bad"><span class="dot"></span>Critical</span>
+            </div>
+            <div class="kpi-value">4.7%</div>
+            <div class="kpi-meta">
+              <span class="kpi-target">Target ≥ 50%</span>
+              <span class="kpi-delta flat">— flat</span>
+            </div>
+            <div class="kpi-interp">Glossary is barely used in the dataset. AI lacks guidance in most cases.</div>
+          </div>
+
+          <!-- KPI 4: Run consistency -->
+          <div class="kpi warn">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <span class="kpi-label">Run-to-run consistency</span>
+              <span class="status-pill warn"><span class="dot"></span>Watch</span>
+            </div>
+            <div class="kpi-value">0.95</div>
+            <div class="kpi-meta">
+              <span class="kpi-target">Target ≥ 0.98</span>
+              <span class="kpi-delta down">▼ declining</span>
+            </div>
+            <div class="kpi-interp">Outputs vary between runs. Indicates instability in interpretation.</div>
+          </div>
+
+          <!-- KPI 5: Stability trend -->
+          <div class="kpi warn">
+            <div style="display:flex; justify-content:space-between; align-items:center">
+              <span class="kpi-label">Stability over time</span>
+              <span class="status-pill warn"><span class="dot"></span>Watch</span>
+            </div>
+            <div class="kpi-value sm">Slightly rising</div>
+            <div class="kpi-meta">
+              <span class="kpi-target">Goal: stable + improving</span>
+            </div>
+            <div class="kpi-interp">Quality is improving but not yet stable enough to rely on.</div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============== 2. Key insights ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">2 · Key insights right now</div>
+          <div class="section-sub">What changed · biggest problem · what's improving</div>
+        </div>
+
+        <div class="insights">
+          <div class="insight bad">
+            <div class="insight-icon">!</div>
+            <div>
+              <div class="insight-title">Biggest problem: terminology in healthcare &amp; migration</div>
+              <div class="insight-body">Glossary coverage is only 1.1% in healthcare and 2.2% in migration — high risk of incorrect specialist terminology in those domains.</div>
+            </div>
+          </div>
+          <div class="insight warn">
+            <div class="insight-icon">▲</div>
+            <div>
+              <div class="insight-title">What changed: consistency is drifting down</div>
+              <div class="insight-body">Domain consistency dropped from ~0.98 to ~0.94 across runs. Same input is now producing different outputs more often.</div>
+            </div>
+          </div>
+          <div class="insight good">
+            <div class="insight-icon">✓</div>
+            <div>
+              <div class="insight-title">What's improving: term recall trending up</div>
+              <div class="insight-body">Term Accuracy and Recall (Morphological) are both edging upward, suggesting recent prompt or retrieval changes are helping.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== 3. Problem breakdowns ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">3 · Where exactly is the problem?</div>
+          <div class="section-sub">Drill into the KPIs that are amber or red</div>
+        </div>
+
+        <div class="split-2">
+
+          <!-- Coverage by domain -->
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Glossary coverage by domain</div>
+                <div class="card-sub">Coloured by status. Target line at 50%.</div>
+              </div>
+              <span class="status-pill bad"><span class="dot"></span>Critical</span>
+            </div>
+            <div class="hbar-list">
+              <div class="hbar-row">
+                <div class="hbar-label">employment</div>
+                <div class="hbar-track">
+                  <div class="hbar-fill warn" style="width:13%"></div>
+                  <div class="hbar-target" style="left:50%"></div>
+                </div>
+                <div class="hbar-value">13%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">social_services</div>
+                <div class="hbar-track">
+                  <div class="hbar-fill bad" style="width:2.4%"></div>
+                  <div class="hbar-target" style="left:50%"></div>
+                </div>
+                <div class="hbar-value">2.4%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">migration</div>
+                <div class="hbar-track">
+                  <div class="hbar-fill bad" style="width:2.2%"></div>
+                  <div class="hbar-target" style="left:50%"></div>
+                </div>
+                <div class="hbar-value">2.2%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">healthcare</div>
+                <div class="hbar-track">
+                  <div class="hbar-fill bad" style="width:1.1%"></div>
+                  <div class="hbar-target" style="left:50%"></div>
+                </div>
+                <div class="hbar-value">1.1%</div>
+              </div>
+              <div class="axis-row">
+                <div></div>
+                <div class="axis"><span>0%</span><span>25%</span><span>50%</span><span>75%</span><span>100%</span></div>
+                <div></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Consistency over time -->
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Run-to-run consistency over time</div>
+                <div class="card-sub">Same input across runs. Higher = more stable.</div>
+              </div>
+              <span class="status-pill warn"><span class="dot"></span>Declining</span>
+            </div>
+
+            <svg class="linechart" viewBox="0 0 600 180" preserveAspectRatio="none">
+              <!-- grid -->
+              <g class="grid">
+                <line x1="40" y1="20"  x2="590" y2="20"/>
+                <line x1="40" y1="60"  x2="590" y2="60"/>
+                <line x1="40" y1="100" x2="590" y2="100"/>
+                <line x1="40" y1="140" x2="590" y2="140"/>
+              </g>
+              <g class="axis">
+                <text x="6" y="24">1.00</text>
+                <text x="6" y="64">0.97</text>
+                <text x="6" y="104">0.95</text>
+                <text x="6" y="144">0.92</text>
+              </g>
+              <!-- target -->
+              <line class="target" x1="40" y1="40" x2="590" y2="40"/>
+              <text class="target-label" x="546" y="36">Target 0.98</text>
+              <!-- series: declining trend 0.98 → 0.94 -->
+              <polyline class="series-b" points="
+                40,42 90,52 140,58 190,60 240,62 290,68 340,72 390,76 440,82 490,88 540,98 590,118
+              "/>
+              <g class="dot-b">
+                <circle cx="40" cy="42" r="3"/>
+                <circle cx="140" cy="58" r="3"/>
+                <circle cx="240" cy="62" r="3"/>
+                <circle cx="340" cy="72" r="3"/>
+                <circle cx="440" cy="82" r="3"/>
+                <circle cx="540" cy="98" r="3"/>
+                <circle cx="590" cy="118" r="3"/>
+              </g>
+              <!-- x labels -->
+              <g class="axis">
+                <text x="40"  y="172">Apr 22</text>
+                <text x="240" y="172">Apr 23</text>
+                <text x="450" y="172">Apr 24</text>
+              </g>
+            </svg>
+
+            <div class="legend">
+              <span><span class="swatch" style="background:var(--brand-600)"></span>gpt-realtime-1.5</span>
+              <span><span class="swatch" style="background:var(--good-600); height:2px; vertical-align:middle"></span>Target 0.98</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============== 4. Recommended actions ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">4 · What should we do next?</div>
+          <div class="section-sub">Auto-generated from amber and red metrics. Owner and status are placeholders.</div>
+        </div>
+
+        <table class="action-table">
+          <thead>
+            <tr>
+              <th style="width:20%">Issue</th>
+              <th style="width:9%">Severity</th>
+              <th style="width:24%">Evidence</th>
+              <th style="width:24%">Recommended action</th>
+              <th style="width:12%">Owner</th>
+              <th style="width:11%">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td class="issue">Glossary coverage critically low overall</td>
+              <td class="severity-high">High</td>
+              <td class="evidence">Only <strong>4.7%</strong> of dataset × glossary pairs are covered (312 of 16,088 terms used).</td>
+              <td>Audit glossary against the eval dataset; add missing terms; verify retrieval is actually firing.</td>
+              <td><span class="owner-chip">Glossary / Knowledge</span></td>
+              <td class="status-todo">● Not started</td>
+            </tr>
+
+            <tr>
+              <td class="issue">Healthcare terminology unsupported</td>
+              <td class="severity-high">High</td>
+              <td class="evidence">Coverage <strong>1.1%</strong> across 9,258 healthcare terms — highest-volume domain, lowest support.</td>
+              <td>Prioritise healthcare glossary expansion; run human evaluation on healthcare sessions.</td>
+              <td><span class="owner-chip">QA / Language</span></td>
+              <td class="status-todo">● Not started</td>
+            </tr>
+
+            <tr>
+              <td class="issue">Migration domain low coverage</td>
+              <td class="severity-med">Medium</td>
+              <td class="evidence">Coverage <strong>2.2%</strong> across 3,236 terms.</td>
+              <td>Glossary review for migration; align with caseworker terminology guides.</td>
+              <td><span class="owner-chip">Glossary / Knowledge</span></td>
+              <td class="status-todo">● Not started</td>
+            </tr>
+
+            <tr>
+              <td class="issue">Translation quality below target</td>
+              <td class="severity-med">Medium</td>
+              <td class="evidence">Quality is <strong>~65–70%</strong>, target ≥ 80%. ~1 in 3 interpretations is incorrect.</td>
+              <td>Run human evaluation on a sampled batch; error analysis by domain &amp; language; review prompts.</td>
+              <td><span class="owner-chip">QA / Language</span></td>
+              <td class="status-progress">◐ In progress</td>
+            </tr>
+
+            <tr>
+              <td class="issue">Run-to-run consistency declining</td>
+              <td class="severity-med">Medium</td>
+              <td class="evidence">Domain consistency dropped from ~0.98 to ~0.94 over the last evaluation window.</td>
+              <td>Pin model + decoding params, replay last 24h evals, isolate the regression source.</td>
+              <td><span class="owner-chip">Platform / ML</span></td>
+              <td class="status-todo">● Not started</td>
+            </tr>
+
+            <tr>
+              <td class="issue">ru-RU lowest-coverage language pair</td>
+              <td class="severity-low">Low</td>
+              <td class="evidence">sv-SE → ru-RU coverage <strong>5.3%</strong> (best of the three pairs but still well below target).</td>
+              <td>Track per-language quality; expand glossary for Russian medical / social terms first.</td>
+              <td><span class="owner-chip">Language ops</span></td>
+              <td class="status-todo">● Not started</td>
+            </tr>
+
+          </tbody>
+        </table>
+
+        <div class="spacer-md"></div>
+        <div class="muted" style="font-size:12px">
+          Severity, owner and status are configurable placeholders. Thresholds: <strong>good</strong> ≥ target; <strong>watch</strong> within 15% of target; <strong>critical</strong> &gt; 15% below target.
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
