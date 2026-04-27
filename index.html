@@ -1,15 +1,15 @@
 <!doctype html>
-<html lang="en">
+<html lang="sv">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Evals Reporting · Landing</title>
+  <title>Evals Reporting · Översikt</title>
   <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
   <div class="app">
 
-    <!-- ============== Sidebar ============== -->
+    <!-- ============== Sidofält ============== -->
     <aside class="sidebar">
       <div class="brand">
         <div class="brand-mark" aria-hidden="true">
@@ -22,86 +22,84 @@
       </div>
 
       <div class="nav-group">
-        <div class="nav-label">Overview</div>
-        <a class="nav-item active" href="index.html"><span class="nav-icon">🏠</span> Landing</a>
+        <div class="nav-label">Översikt</div>
+        <a class="nav-item active" href="index.html"><span class="nav-icon">🏠</span> Översikt</a>
       </div>
 
       <div class="nav-group">
-        <div class="nav-label">Main components</div>
-        <a class="nav-item" href="dataset-coverage.html"><span class="nav-icon">📊</span> Dataset Coverage</a>
-        <a class="nav-item" href="glossary-coverage.html"><span class="nav-icon">📚</span> Glossary Coverage</a>
-        <a class="nav-item" href="benchmark-evaluation.html"><span class="nav-icon">🎯</span> Benchmark Evaluation</a>
-        <a class="nav-item" href="glossary-consumption.html"><span class="nav-icon">📈</span> Glossary Consumption</a>
+        <div class="nav-label">Huvudkomponenter</div>
+        <a class="nav-item" href="underlag.html"><span class="nav-icon">📊</span> Underlag</a>
+        <a class="nav-item" href="ordlista.html"><span class="nav-icon">📚</span> Ordlista</a>
+        <a class="nav-item" href="kvalitetsmatning.html"><span class="nav-icon">🎯</span> Kvalitetsmätning</a>
       </div>
 
       <div class="nav-group">
-        <div class="nav-label">Reference</div>
-        <a class="nav-item" href="metrics-definitions.html"><span class="nav-icon">📖</span> Metrics Definitions</a>
+        <div class="nav-label">Referens</div>
+        <a class="nav-item" href="matt-definitioner.html"><span class="nav-icon">📖</span> Måttdefinitioner</a>
       </div>
 
       <div class="sidebar-foot">
         <div class="data-block">
           <div class="label">DATA</div>
-          <div>Last refreshed</div>
+          <div>Senast uppdaterat</div>
           <div style="color:#fff">2026-04-24 12:59 UTC</div>
         </div>
-        <span class="refresh">↻ Refresh data</span>
+        <span class="refresh">↻ Uppdatera data</span>
         <div style="margin-top:14px; opacity:0.6">transvoice · v0.1.0</div>
       </div>
     </aside>
 
-    <!-- ============== Main ============== -->
+    <!-- ============== Huvudinnehåll ============== -->
     <main class="main">
 
       <header class="page-header">
-        <div class="crumbs">Overview</div>
+        <div class="crumbs">Översikt</div>
         <h1>🏠 Evals Reporting</h1>
-        <p>A reporting view of the Transvoice evaluation pipeline. Each section below presents a different facet of the data — coverage of the dataset, coverage of the glossary, benchmark scores against human reference, and how often glossary terms are applied.</p>
+        <p>En rapportvy över Transvoice utvärderingspipeline. Här kan ni se hur vår AI-tolk presterar jämfört med mänsklig referens — på vilka språk vi är starka, var vi behöver förbättras, och hur kvaliteten utvecklas över tid.</p>
       </header>
 
       <section class="section">
         <div class="section-head">
-          <div class="section-title">Components</div>
+          <div class="section-title">Komponenter</div>
         </div>
-        <p class="section-desc">Navigate to any component below to explore its data.</p>
+        <p class="section-desc">Klicka på en komponent nedan för att utforska datan.</p>
 
         <div class="lcards">
 
-          <a class="lcard" href="dataset-coverage.html">
+          <a class="lcard" href="underlag.html">
             <div class="lcard-icon">📊</div>
-            <div class="lcard-title">Dataset Coverage</div>
-            <div class="lcard-desc">How well the evaluation dataset covers expected domains and language directions.</div>
-            <div class="lcard-cta">Open →</div>
+            <div class="lcard-title">Underlag</div>
+            <div class="lcard-desc">Hur väl täcker vårt testunderlag de domäner och språk vi förväntar oss? Visar antal yttranden, datamängder och språkriktningar.</div>
+            <div class="lcard-cta">Öppna →</div>
           </a>
 
-          <a class="lcard" href="glossary-coverage.html">
+          <a class="lcard" href="ordlista.html">
             <div class="lcard-icon">📚</div>
-            <div class="lcard-title">Glossary Coverage</div>
-            <div class="lcard-desc">What proportion of glossary source terms appear in the evaluation dataset transcriptions.</div>
-            <div class="lcard-cta">Open →</div>
+            <div class="lcard-title">Ordlista</div>
+            <div class="lcard-desc">Hur stor del av ordlistans facktermer hittas i vårt testmaterial — och hur ofta använder AI:n dem rätt? Per språk och per domän.</div>
+            <div class="lcard-cta">Öppna →</div>
           </a>
 
-          <a class="lcard" href="benchmark-evaluation.html">
+          <a class="lcard" href="kvalitetsmatning.html">
             <div class="lcard-icon">🎯</div>
-            <div class="lcard-title">Benchmark Evaluation</div>
-            <div class="lcard-desc">Scores model outputs against benchmark ground-truth across transcription, translation, and technical-term fidelity.</div>
-            <div class="lcard-cta">Open →</div>
+            <div class="lcard-title">Kvalitetsmätning</div>
+            <div class="lcard-desc">Hur AI-tolken presterar mot mänsklig referens — översikt per språk samt djupare jämförelse mellan tolkmodeller och tidigare mätningar.</div>
+            <div class="lcard-cta">Öppna →</div>
           </a>
 
-          <a class="lcard" href="glossary-consumption.html">
-            <div class="lcard-icon">📈</div>
-            <div class="lcard-title">Glossary Consumption</div>
-            <div class="lcard-desc">How frequently glossary terms are missed during translation runs.</div>
-            <div class="lcard-cta">Open →</div>
-          </a>
+        </div>
 
-          <a class="lcard" href="metrics-definitions.html">
+        <div class="spacer-md"></div>
+
+        <div class="lcards" style="grid-template-columns: 1fr;">
+          <a class="lcard" href="matt-definitioner.html" style="flex-direction:row; align-items:center; gap:16px;">
             <div class="lcard-icon">📖</div>
-            <div class="lcard-title">Metrics Definitions</div>
-            <div class="lcard-desc">Definitions for every metric used in the dashboard.</div>
-            <div class="lcard-cta">Open →</div>
+            <div style="flex:1">
+              <div class="lcard-title">Måttdefinitioner</div>
+              <div class="lcard-desc">Förklaringar av varje mått som används i dashboarden — vad de betyder, hur de tolkas och vad som är ett bra värde.</div>
+            </div>
+            <div class="lcard-cta">Öppna →</div>
           </a>
-
         </div>
       </section>
 

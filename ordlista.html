@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evals Reporting · Ordlista</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+            <rect x="7" y="9" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="brand-name">EVALS REPORTING</div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Översikt</div>
+        <a class="nav-item" href="index.html"><span class="nav-icon">🏠</span> Översikt</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Huvudkomponenter</div>
+        <a class="nav-item" href="underlag.html"><span class="nav-icon">📊</span> Underlag</a>
+        <a class="nav-item active" href="ordlista.html"><span class="nav-icon">📚</span> Ordlista</a>
+        <a class="nav-item" href="kvalitetsmatning.html"><span class="nav-icon">🎯</span> Kvalitetsmätning</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Referens</div>
+        <a class="nav-item" href="matt-definitioner.html"><span class="nav-icon">📖</span> Måttdefinitioner</a>
+      </div>
+
+      <div class="sidebar-foot">
+        <div class="data-block">
+          <div class="label">DATA</div>
+          <div>Senast uppdaterat</div>
+          <div style="color:#fff">2026-04-24 12:59 UTC</div>
+        </div>
+        <span class="refresh">↻ Uppdatera data</span>
+        <div style="margin-top:14px; opacity:0.6">transvoice · v0.1.0</div>
+      </div>
+    </aside>
+
+    <main class="main">
+
+      <header class="page-header">
+        <div class="crumbs">Huvudkomponenter</div>
+        <h1>📚 Ordlista</h1>
+        <p>Hur stor del av ordlistans facktermer återfinns i vårt testmaterial — och hur ofta använder AI-tolken dem rätt? Visar både täckning och faktisk användning per språk och domän.</p>
+      </header>
+
+      <div class="page-strip">
+        <span class="last-measure">📅 Senaste mätning: <strong>2026-04-24 12:59 UTC</strong></span>
+        <span class="last-measure">🔁 Antal mätningar: <strong>14</strong></span>
+        <span class="last-measure">🤖 Tolkmodeller: <strong>gpt-realtime-1.5</strong>, <strong>oracle</strong></span>
+      </div>
+
+      <!-- ============== Förklaringsruta ============== -->
+      <div class="glossary-box">
+        <div class="gb-title">Vad menar vi med?</div>
+        <dl>
+          <dt>Ordlista</dt>
+          <dd>En lista över godkända fackord och deras översättningar. Ska användas av AI-tolken för att hitta rätt term.</dd>
+          <dt>Termpar</dt>
+          <dd>Ett ord på källspråket + dess godkända översättning på målspråket, t.ex. <em>Etableringsplan</em> ↔ <em>خطة الترسيخ</em>.</dd>
+          <dt>Träff (hit)</dt>
+          <dd>AI-tolken använde rätt term enligt ordlistan.</dd>
+          <dt>Miss</dt>
+          <dd>AI-tolken använde fel ord eller en annan översättning än den ordlistan föreslår.</dd>
+          <dt>Täckning</dt>
+          <dd>Hur stor andel av ordlistans termer som ens dyker upp i vårt testmaterial. Låg täckning = vi har inte testat ordlistan ordentligt.</dd>
+          <dt>Mätning / körning</dt>
+          <dd>En testomgång där AI-tolken får tolka samma material för att vi ska kunna jämföra resultat över tid.</dd>
+        </dl>
+      </div>
+
+      <!-- ============== Sammanfattning ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Sammanfattning</div>
+        </div>
+        <p class="section-desc">Övergripande siffror för hela ordlistan: hur stor andel av termerna som testas, hur många träffar och missar AI-tolken har, och hur det förändrats sedan föregående mätning.</p>
+
+        <div class="kpi-grid k4">
+          <div class="kpi plain">
+            <span class="kpi-label">Täckning av ordlistan</span>
+            <div class="kpi-value lg">4.7%</div>
+            <div class="kpi-meta">
+              <span>mål ≥ 50% <span class="config-tag">konfigurerbart</span></span>
+              <span class="status-pill bad"><span class="dot"></span>Långt under mål</span>
+            </div>
+            <div class="kpi-interp">av alla par av datamängd × ordlista <span class="delta flat">— oförändrad</span></div>
+          </div>
+          <div class="kpi plain">
+            <span class="kpi-label">Tillgängliga termer</span>
+            <div class="kpi-value lg">16 088</div>
+            <div class="kpi-interp">termer i ordlistan totalt</div>
+          </div>
+          <div class="kpi plain">
+            <span class="kpi-label">Träffar / Missar</span>
+            <div class="kpi-value lg">2 318 <span style="font-size:18px; color: var(--ink-500); font-weight:500">/ 678</span></div>
+            <div class="kpi-interp">av 2 996 termtillfällen <span class="delta up">▲ +124</span></div>
+          </div>
+          <div class="kpi plain">
+            <span class="kpi-label">Missrate</span>
+            <div class="kpi-value lg">22.6%</div>
+            <div class="kpi-meta">
+              <span>mål ≤ 10% <span class="config-tag">konfigurerbart</span></span>
+              <span class="status-pill warn"><span class="dot"></span>Över mål</span>
+            </div>
+            <div class="kpi-interp">andel termer som missas <span class="delta down">▼ −0.8</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== Per språkriktning ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Per språkriktning</div>
+        </div>
+        <p class="section-desc">Det här är det viktigaste perspektivet: <strong>på vilka språk har AI-tolken bäst hjälp av ordlistan?</strong> Täckning visar hur stor del av ordlistan som testas; missrate visar hur ofta AI:n missar att använda en term när den borde.</p>
+
+        <div class="card">
+          <table class="data">
+            <thead>
+              <tr>
+                <th>Språkriktning</th>
+                <th class="num">Täckning</th>
+                <th class="num">Mål 50%</th>
+                <th class="num">Missrate</th>
+                <th class="num">Mål ≤ 10%</th>
+                <th class="num">Träffar</th>
+                <th class="num">Missar</th>
+                <th class="num">Termer i ordlistan</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>sv-SE → ar-SA</strong></td>
+                <td class="num">4.5%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>−45.5</span></td>
+                <td class="num">26.5%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>+16.5</span></td>
+                <td class="num">504</td>
+                <td class="num">182</td>
+                <td class="num">5 512</td>
+                <td><span class="status-icon bad">✕</span></td>
+              </tr>
+              <tr>
+                <td><strong>sv-SE → ru-RU</strong></td>
+                <td class="num">5.3%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>−44.7</span></td>
+                <td class="num">14.1%</td>
+                <td class="num"><span class="status-pill warn"><span class="dot"></span>+4.1</span></td>
+                <td class="num">421</td>
+                <td class="num">69</td>
+                <td class="num">5 262</td>
+                <td><span class="status-icon warn">△</span></td>
+              </tr>
+              <tr>
+                <td><strong>sv-SE → es-ES</strong></td>
+                <td class="num">4.2%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>−45.8</span></td>
+                <td class="num">23.1%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>+13.1</span></td>
+                <td class="num">495</td>
+                <td class="num">149</td>
+                <td class="num">5 314</td>
+                <td><span class="status-icon bad">✕</span></td>
+              </tr>
+              <tr>
+                <td><strong>ru-RU → sv-SE</strong></td>
+                <td class="num">—</td>
+                <td class="num"><span class="muted">ingen mätning</span></td>
+                <td class="num">29.0%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>+19.0</span></td>
+                <td class="num">298</td>
+                <td class="num">122</td>
+                <td class="num">—</td>
+                <td><span class="status-icon bad">✕</span></td>
+              </tr>
+              <tr>
+                <td><strong>ar-SA → sv-SE</strong></td>
+                <td class="num">—</td>
+                <td class="num"><span class="muted">ingen mätning</span></td>
+                <td class="num">27.3%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>+17.3</span></td>
+                <td class="num">295</td>
+                <td class="num">111</td>
+                <td class="num">—</td>
+                <td><span class="status-icon bad">✕</span></td>
+              </tr>
+              <tr>
+                <td><strong>es-ES → sv-SE</strong></td>
+                <td class="num">—</td>
+                <td class="num"><span class="muted">ingen mätning</span></td>
+                <td class="num">12.9%</td>
+                <td class="num"><span class="status-pill warn"><span class="dot"></span>+2.9</span></td>
+                <td class="num">305</td>
+                <td class="num">45</td>
+                <td class="num">—</td>
+                <td><span class="status-icon warn">△</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="muted" style="font-size:12px; margin-top:8px">
+          ✓ uppfyller målet · △ närmar sig målet · ✕ under målet. Mål är konfigurerbara placeholders.
+        </p>
+      </section>
+
+      <!-- ============== Per domän ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Per domän</div>
+        </div>
+        <p class="section-desc">Hur ordlistan presterar i varje ämnesområde. Områden med stor termmängd men låg täckning — t.ex. sjukvård — är där det är viktigast att utöka testmaterialet.</p>
+
+        <div class="card">
+          <table class="data">
+            <thead>
+              <tr>
+                <th>Domän</th>
+                <th class="num">Täckning</th>
+                <th class="num">Mål 50%</th>
+                <th class="num">Missrate</th>
+                <th class="num">Mål ≤ 10%</th>
+                <th class="num">Träffar</th>
+                <th class="num">Missar</th>
+                <th class="num">Termer i ordlistan</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>employment</strong></td>
+                <td class="num">13%</td>
+                <td class="num"><span class="status-pill warn"><span class="dot"></span>−37</span></td>
+                <td class="num">23.9%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>+13.9</span></td>
+                <td class="num">575</td>
+                <td class="num">181</td>
+                <td class="num">476</td>
+                <td><span class="status-icon warn">△</span></td>
+              </tr>
+              <tr>
+                <td><strong>social_services</strong></td>
+                <td class="num">2.4%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>−47.6</span></td>
+                <td class="num">25.0%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>+15.0</span></td>
+                <td class="num">546</td>
+                <td class="num">182</td>
+                <td class="num">3 118</td>
+                <td><span class="status-icon bad">✕</span></td>
+              </tr>
+              <tr>
+                <td><strong>migration</strong></td>
+                <td class="num">2.2%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>−47.8</span></td>
+                <td class="num">22.5%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>+12.5</span></td>
+                <td class="num">575</td>
+                <td class="num">167</td>
+                <td class="num">3 236</td>
+                <td><span class="status-icon bad">✕</span></td>
+              </tr>
+              <tr>
+                <td><strong>healthcare</strong></td>
+                <td class="num">1.1%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>−48.9</span></td>
+                <td class="num">19.2%</td>
+                <td class="num"><span class="status-pill bad"><span class="dot"></span>+9.2</span></td>
+                <td class="num">622</td>
+                <td class="num">148</td>
+                <td class="num">9 258</td>
+                <td><span class="status-icon bad">✕</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============== Termprestanda ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Termprestanda — vilka enskilda termer fungerar (eller inte)?</div>
+        </div>
+        <p class="section-desc">Här ser ni de mest missade termerna och de bäst presterande termerna. Det här är listan att utgå ifrån när ordlistan eller AI-promptar ska förbättras.</p>
+
+        <div class="card" style="margin-bottom:14px">
+          <div class="filters" style="margin-bottom:0; box-shadow:none; border:none; padding:0;">
+            <div class="filter-field">
+              <span class="filter-label">Domän</span>
+              <div class="filter-control">
+                <span>employment</span>
+                <span class="caret">▾</span>
+              </div>
+            </div>
+            <div class="filter-field">
+              <span class="filter-label">Språkriktning</span>
+              <div class="filter-control">
+                <span>ar-SA → sv-SE</span>
+                <span class="caret">▾</span>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </div>
+
+        <div class="dual">
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">❌ Mest missade termer</div>
+                <div class="card-sub">Här missar AI-tolken oftast — prioritera att förbättra dessa.</div>
+              </div>
+            </div>
+            <div class="hbar-list">
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Etableringsplan ↔ خطة الترسيخ</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:63%"></div></div>
+                <div class="hbar-value">63%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Avslag ↔ رفض</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:32%"></div></div>
+                <div class="hbar-value">32%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Instegsjobb ↔ عمل مدعوم للوافدين الجدد</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:30%"></div></div>
+                <div class="hbar-value">30%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Kartläggning ↔ استطلاع</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:22%"></div></div>
+                <div class="hbar-value">22%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Arbetslöshetersättning ↔ تعويض البطالة</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:3%"></div></div>
+                <div class="hbar-value">3%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Kassakort ↔ بطاقة صندوق البطالة</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:2%"></div></div>
+                <div class="hbar-value">2%</div>
+              </div>
+              <div class="axis-row wide-label">
+                <div></div>
+                <div class="axis"><span>0%</span><span>20%</span><span>40%</span><span>60%</span><span>80%</span><span>100%</span></div>
+                <div></div>
+              </div>
+              <div style="font-size:11px; color: var(--ink-500); text-align:center; margin-top:4px">Missrate (%)</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">✅ Bäst presterande termer</div>
+                <div class="card-sub">AI-tolken hittar dessa termer pålitligt.</div>
+              </div>
+            </div>
+            <div class="hbar-list">
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Arbetslöshetersättning ↔ تعويض البطالة</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:100%"></div></div>
+                <div class="hbar-value">100%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Kassakort ↔ بطاقة صندوق البطالة</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:100%"></div></div>
+                <div class="hbar-value">100%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Kartläggning ↔ استطلاع</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:80%"></div></div>
+                <div class="hbar-value">80%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Instegsjobb ↔ عمل مدعوم للوافدين الجدد</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:75%"></div></div>
+                <div class="hbar-value">75%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Avslag ↔ رفض</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:70%"></div></div>
+                <div class="hbar-value">70%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Etableringsplan ↔ خطة الترسيخ</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:38%"></div></div>
+                <div class="hbar-value">38%</div>
+              </div>
+              <div class="axis-row wide-label">
+                <div></div>
+                <div class="axis"><span>0%</span><span>20%</span><span>40%</span><span>60%</span><span>80%</span><span>100%</span></div>
+                <div></div>
+              </div>
+              <div style="font-size:11px; color: var(--ink-500); text-align:center; margin-top:4px">Träffrate (%)</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============== Tidsutveckling ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Utveckling över tid</div>
+        </div>
+        <p class="section-desc">Missrate per domän över de senaste mätningarna. Lägre = bättre. Den gröna mållinjen visar vårt mål på högst 10% missrate.</p>
+
+        <div class="card">
+          <svg class="linechart" viewBox="0 0 600 220" preserveAspectRatio="none" style="height:220px">
+            <g class="grid">
+              <line x1="50" y1="20"  x2="590" y2="20"/>
+              <line x1="50" y1="60"  x2="590" y2="60"/>
+              <line x1="50" y1="100" x2="590" y2="100"/>
+              <line x1="50" y1="140" x2="590" y2="140"/>
+              <line x1="50" y1="180" x2="590" y2="180"/>
+            </g>
+            <g class="axis">
+              <text x="6" y="24">100%</text>
+              <text x="6" y="64">80%</text>
+              <text x="6" y="104">60%</text>
+              <text x="6" y="144">40%</text>
+              <text x="6" y="184">20%</text>
+            </g>
+
+            <!-- target line at 10% (=> y=176) -->
+            <line class="target" x1="50" y1="176" x2="590" y2="176"/>
+            <text class="target-label" x="538" y="172">Mål ≤ 10%</text>
+
+            <!-- domain lines (positions correspond to ~25% miss rate) -->
+            <polyline class="series-a" points="50,180 80,128 120,128 200,128 320,128 440,128 540,130 590,132" style="stroke:#4c1d95"/>
+            <polyline class="series-b" points="50,180 80,138 120,138 200,138 320,138 440,138 540,140 590,142" style="stroke:#7c3aed"/>
+            <polyline class="series-b" points="50,180 80,131 120,131 200,131 320,131 440,131 540,133 590,135" style="stroke:#a78bfa"/>
+            <polyline class="series-b" points="50,180 80,125 120,125 200,125 320,125 440,125 540,127 590,128" style="stroke:#c4b5fd"/>
+
+            <g class="axis">
+              <text x="50"  y="212">2026-04-22 15:00</text>
+              <text x="290" y="212">2026-04-23 00:00</text>
+              <text x="500" y="212">2026-04-23 09:00</text>
+            </g>
+          </svg>
+          <div class="legend">
+            <span><span class="swatch" style="background:#4c1d95"></span>employment</span>
+            <span><span class="swatch" style="background:#7c3aed"></span>healthcare</span>
+            <span><span class="swatch" style="background:#a78bfa"></span>migration</span>
+            <span><span class="swatch" style="background:#c4b5fd"></span>social_services</span>
+            <span><span class="swatch" style="background:var(--good-600); height:2px"></span>Mål</span>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>

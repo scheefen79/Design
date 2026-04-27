@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evals Reporting · Underlag</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+            <rect x="7" y="9" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="brand-name">EVALS REPORTING</div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Översikt</div>
+        <a class="nav-item" href="index.html"><span class="nav-icon">🏠</span> Översikt</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Huvudkomponenter</div>
+        <a class="nav-item active" href="underlag.html"><span class="nav-icon">📊</span> Underlag</a>
+        <a class="nav-item" href="ordlista.html"><span class="nav-icon">📚</span> Ordlista</a>
+        <a class="nav-item" href="kvalitetsmatning.html"><span class="nav-icon">🎯</span> Kvalitetsmätning</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Referens</div>
+        <a class="nav-item" href="matt-definitioner.html"><span class="nav-icon">📖</span> Måttdefinitioner</a>
+      </div>
+
+      <div class="sidebar-foot">
+        <div class="data-block">
+          <div class="label">DATA</div>
+          <div>Senast uppdaterat</div>
+          <div style="color:#fff">2026-04-24 12:59 UTC</div>
+        </div>
+        <span class="refresh">↻ Uppdatera data</span>
+        <div style="margin-top:14px; opacity:0.6">transvoice · v0.1.0</div>
+      </div>
+    </aside>
+
+    <main class="main">
+
+      <header class="page-header">
+        <div class="crumbs">Huvudkomponenter</div>
+        <h1>📊 Underlag</h1>
+        <p>Hur väl täcker vårt testunderlag de domäner och språk vi förväntar oss?</p>
+      </header>
+
+      <!-- Förklaring av fackord -->
+      <div class="glossary-box">
+        <div class="gb-title">Vad menar vi med?</div>
+        <dl>
+          <dt>Yttrande</dt>
+          <dd>En talad mening eller fras i en inspelning — det minsta vi mäter på.</dd>
+          <dt>Datamängd</dt>
+          <dd>En samling inspelade samtal, t.ex. ett vårdsamtal eller arbetsförmedlingssamtal, som AI:n får tolka.</dd>
+          <dt>Domän</dt>
+          <dd>Ett ämnesområde som vi mäter separat, t.ex. sjukvård, juridik eller arbetsmarknad.</dd>
+          <dt>Språkriktning</dt>
+          <dd>Från vilket språk till vilket språk, t.ex. svenska → arabiska.</dd>
+        </dl>
+      </div>
+
+      <!-- ============== Sammanfattning ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Sammanfattning</div>
+        </div>
+        <p class="section-desc">Övergripande storlek på testunderlaget — antal domäner, språkriktningar, datamängder och totalt antal yttranden.</p>
+
+        <div class="kpi-grid k4">
+          <div class="kpi plain">
+            <span class="kpi-label">Domäner</span>
+            <div class="kpi-value lg">5</div>
+            <div class="kpi-meta">
+              <span>mål 5+ <span class="config-tag">konfigurerbart</span></span>
+              <span class="status-pill good"><span class="dot"></span>Uppfyllt</span>
+            </div>
+            <div class="kpi-interp">distinkta domäner</div>
+          </div>
+          <div class="kpi plain">
+            <span class="kpi-label">Språkriktningar</span>
+            <div class="kpi-value lg">8</div>
+            <div class="kpi-meta">
+              <span>mål 8+ <span class="config-tag">konfigurerbart</span></span>
+              <span class="status-pill good"><span class="dot"></span>Uppfyllt</span>
+            </div>
+            <div class="kpi-interp">distinkta språkriktningar</div>
+          </div>
+          <div class="kpi plain">
+            <span class="kpi-label">Datamängder</span>
+            <div class="kpi-value lg">6</div>
+            <div class="kpi-interp">distinkta datamängder</div>
+          </div>
+          <div class="kpi plain">
+            <span class="kpi-label">Yttranden</span>
+            <div class="kpi-value lg">470</div>
+            <div class="kpi-meta">
+              <span>mål 500+ <span class="config-tag">konfigurerbart</span></span>
+              <span class="status-pill warn"><span class="dot"></span>Nära mål</span>
+            </div>
+            <div class="kpi-interp">totalt antal yttranden</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== Per domän ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Per domän</div>
+        </div>
+        <p class="section-desc">Hur många yttranden vi har per domän, och hur många språkpar, datamängder och samtal som ingår. Mållinjen visar minst 100 yttranden per domän — under detta blir mätningen osäker.</p>
+
+        <div class="dual">
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Yttranden per domän</div>
+                <div class="card-sub">Stapelns längd = antal yttranden. Den vertikala linjen är målvärdet.</div>
+              </div>
+            </div>
+            <div class="hbar-list">
+              <!-- Max 132 (healthcare). Mål: 100 → ligger vid 76 % av max -->
+              <div class="hbar-row">
+                <div class="hbar-label">healthcare</div>
+                <div class="hbar-track">
+                  <div class="hbar-fill plain" style="width:100%"></div>
+                  <div class="hbar-target with-label" data-label="Mål 100" style="left:75.7%"></div>
+                </div>
+                <div class="hbar-value">132</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">migration</div>
+                <div class="hbar-track">
+                  <div class="hbar-fill plain" style="width:97%"></div>
+                  <div class="hbar-target with-label" data-label="Mål 100" style="left:75.7%"></div>
+                </div>
+                <div class="hbar-value">128</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">employment</div>
+                <div class="hbar-track">
+                  <div class="hbar-fill plain" style="width:83%"></div>
+                  <div class="hbar-target with-label" data-label="Mål 100" style="left:75.7%"></div>
+                </div>
+                <div class="hbar-value">110</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">social_services</div>
+                <div class="hbar-track">
+                  <div class="hbar-fill plain" style="width:70%"></div>
+                  <div class="hbar-target with-label" data-label="Mål 100" style="left:75.7%"></div>
+                </div>
+                <div class="hbar-value">92</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">legal</div>
+                <div class="hbar-track">
+                  <div class="hbar-fill plain" style="width:6%"></div>
+                  <div class="hbar-target with-label" data-label="Mål 100" style="left:75.7%"></div>
+                </div>
+                <div class="hbar-value">8</div>
+              </div>
+              <div class="axis-row">
+                <div></div>
+                <div class="axis"><span>0</span><span>40</span><span>80</span><span>120</span></div>
+                <div></div>
+              </div>
+              <div style="font-size:11px; color: var(--ink-500); text-align:center; margin-top:4px">Antal yttranden</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Detaljer per domän</div>
+                <div class="card-sub">Status: ✓ uppfyller mål 100+, △ under mål.</div>
+              </div>
+            </div>
+            <table class="data">
+              <thead>
+                <tr>
+                  <th>Domän</th>
+                  <th class="num">Språkpar</th>
+                  <th class="num">Datamängder</th>
+                  <th class="num">Samtal</th>
+                  <th class="num">Yttranden</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>healthcare</td>      <td class="num">8</td><td class="num">2</td><td class="num">12</td><td class="num">132</td><td><span class="status-icon ok">✓</span></td></tr>
+                <tr><td>migration</td>       <td class="num">6</td><td class="num">1</td><td class="num">9</td> <td class="num">128</td><td><span class="status-icon ok">✓</span></td></tr>
+                <tr><td>employment</td>      <td class="num">6</td><td class="num">1</td><td class="num">9</td> <td class="num">110</td><td><span class="status-icon ok">✓</span></td></tr>
+                <tr><td>social_services</td> <td class="num">6</td><td class="num">1</td><td class="num">9</td> <td class="num">92</td> <td><span class="status-icon warn">△</span></td></tr>
+                <tr><td>legal</td>           <td class="num">2</td><td class="num">1</td><td class="num">1</td> <td class="num">8</td>  <td><span class="status-icon bad">✕</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ============== Per språkriktning ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Per språkriktning</div>
+        </div>
+        <p class="section-desc">Hur många yttranden vi har per språkriktning, och hur många domäner och samtal som ingår. Mållinjen visar minst 50 yttranden per språkpar.</p>
+
+        <div class="dual">
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Yttranden per språkriktning</div>
+                <div class="card-sub">Stapelns längd = antal yttranden.</div>
+              </div>
+            </div>
+            <div class="hbar-list">
+              <!-- Max 82 (sv-SE → ru-RU). Mål 50 → 61% av max -->
+              <div class="hbar-row">
+                <div class="hbar-label">sv-SE → ru-RU</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:100%"></div><div class="hbar-target with-label" data-label="Mål 50" style="left:61%"></div></div>
+                <div class="hbar-value">82</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">sv-SE → es-ES</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:95%"></div><div class="hbar-target with-label" data-label="Mål 50" style="left:61%"></div></div>
+                <div class="hbar-value">78</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">sv-SE → ar-SA</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:90%"></div><div class="hbar-target with-label" data-label="Mål 50" style="left:61%"></div></div>
+                <div class="hbar-value">74</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">ar-SA → sv-SE</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:88%"></div><div class="hbar-target with-label" data-label="Mål 50" style="left:61%"></div></div>
+                <div class="hbar-value">72</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">ru-RU → sv-SE</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:80%"></div><div class="hbar-target with-label" data-label="Mål 50" style="left:61%"></div></div>
+                <div class="hbar-value">66</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">es-ES → sv-SE</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:80%"></div><div class="hbar-target with-label" data-label="Mål 50" style="left:61%"></div></div>
+                <div class="hbar-value">66</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">en-US → sv-SE</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:20%"></div><div class="hbar-target with-label" data-label="Mål 50" style="left:61%"></div></div>
+                <div class="hbar-value">16</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">sv-SE → en-US</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:20%"></div><div class="hbar-target with-label" data-label="Mål 50" style="left:61%"></div></div>
+                <div class="hbar-value">16</div>
+              </div>
+              <div class="axis-row">
+                <div></div>
+                <div class="axis"><span>0</span><span>20</span><span>40</span><span>60</span><span>80</span></div>
+                <div></div>
+              </div>
+              <div style="font-size:11px; color: var(--ink-500); text-align:center; margin-top:4px">Antal yttranden</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Detaljer per språkriktning</div>
+                <div class="card-sub">Status: ✓ uppfyller mål 50+, △ under mål.</div>
+              </div>
+            </div>
+            <table class="data">
+              <thead>
+                <tr>
+                  <th>Språkriktning</th>
+                  <th class="num">Domäner</th>
+                  <th class="num">Datamängder</th>
+                  <th class="num">Samtal</th>
+                  <th class="num">Yttranden</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>sv-SE → ru-RU</td><td class="num">4</td><td class="num">1</td><td class="num">12</td><td class="num">82</td><td><span class="status-icon ok">✓</span></td></tr>
+                <tr><td>sv-SE → es-ES</td><td class="num">4</td><td class="num">1</td><td class="num">12</td><td class="num">78</td><td><span class="status-icon ok">✓</span></td></tr>
+                <tr><td>sv-SE → ar-SA</td><td class="num">4</td><td class="num">1</td><td class="num">12</td><td class="num">74</td><td><span class="status-icon ok">✓</span></td></tr>
+                <tr><td>ar-SA → sv-SE</td><td class="num">4</td><td class="num">1</td><td class="num">12</td><td class="num">72</td><td><span class="status-icon ok">✓</span></td></tr>
+                <tr><td>es-ES → sv-SE</td><td class="num">4</td><td class="num">1</td><td class="num">12</td><td class="num">66</td><td><span class="status-icon ok">✓</span></td></tr>
+                <tr><td>ru-RU → sv-SE</td><td class="num">4</td><td class="num">1</td><td class="num">12</td><td class="num">66</td><td><span class="status-icon ok">✓</span></td></tr>
+                <tr><td>en-US → sv-SE</td><td class="num">2</td><td class="num">1</td><td class="num">4</td> <td class="num">16</td><td><span class="status-icon bad">✕</span></td></tr>
+                <tr><td>sv-SE → en-US</td><td class="num">2</td><td class="num">1</td><td class="num">4</td> <td class="num">16</td><td><span class="status-icon bad">✕</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>

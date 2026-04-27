@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="sv">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evals Reporting · Måttdefinitioner</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+<div class="app">
+
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="3" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+          <rect x="7" y="9" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+        </svg>
+      </div>
+      <div class="brand-name">EVALS REPORTING</div>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">Översikt</div>
+      <a class="nav-item" href="index.html"><span class="nav-icon">🏠</span> Översikt</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">Huvudkomponenter</div>
+      <a class="nav-item" href="underlag.html"><span class="nav-icon">📊</span> Underlag</a>
+      <a class="nav-item" href="ordlista.html"><span class="nav-icon">📚</span> Ordlista</a>
+      <a class="nav-item" href="kvalitetsmatning.html"><span class="nav-icon">🎯</span> Kvalitetsmätning</a>
+    </div>
+    <div class="nav-group">
+      <div class="nav-label">Referens</div>
+      <a class="nav-item active" href="matt-definitioner.html"><span class="nav-icon">📖</span> Måttdefinitioner</a>
+    </div>
+    <div class="sidebar-foot">
+      <div class="data-block">
+        <div class="label">DATA</div>
+        <div>Senast uppdaterat</div>
+        <div style="color:#fff">2026-04-24 12:59 UTC</div>
+      </div>
+      <span class="refresh">↻ Uppdatera data</span>
+      <div style="margin-top:14px;opacity:0.6">transvoice · v0.1.0</div>
+    </div>
+  </aside>
+
+  <main class="main">
+
+    <header class="page-header">
+      <div class="crumbs">Referens</div>
+      <h1>📖 Måttdefinitioner</h1>
+      <p>Förklaringar av alla mätvärden som används i dashboarden — vad de mäter, hur de tolkas och vad som räknas som ett bra värde.</p>
+    </header>
+
+    <!-- ============ Transkription ============ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-title">Transkription — Hur rätt skriver AI:n det den hör?</div>
+      </div>
+      <p class="section-desc">Dessa mätvärden jämför AI:ns textutskrift av ett samtal mot en mänsklig referenstransskription.</p>
+
+      <div class="card">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Mått</th>
+              <th>Vad det mäter</th>
+              <th>Riktning</th>
+              <th>Typiskt värde</th>
+              <th>Bra ser ut som</th>
+              <th>Normaliserat i dashboarden?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>WER</strong><br><span class="muted" style="font-size:11px">Word Error Rate</span></td>
+              <td>Andel ord som är fel i transkriptionen jämfört med referensen.</td>
+              <td><span class="status-pill warn"><span class="dot"></span>Lägre = bättre</span></td>
+              <td>0.10 – 0.40</td>
+              <td>WER &lt; 0.10 (under 10% fel)</td>
+              <td>Ja — inverterat, 0→1 (1=perfekt)</td>
+            </tr>
+            <tr>
+              <td><strong>CER</strong><br><span class="muted" style="font-size:11px">Character Error Rate</span></td>
+              <td>Samma som WER men räknat på enskilda tecken. Mer känsligt för stavfel.</td>
+              <td><span class="status-pill warn"><span class="dot"></span>Lägre = bättre</span></td>
+              <td>0.05 – 0.25</td>
+              <td>CER &lt; 0.05</td>
+              <td>Ja — inverterat, 0→1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ Lexikal trohet ============ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-title">Översättning — Lexikal trohet</div>
+      </div>
+      <p class="section-desc">Mäter hur nära AI:ns översättning är referensöversättningen i val av ord och fraser.</p>
+
+      <div class="card">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Mått</th>
+              <th>Vad det mäter</th>
+              <th>Riktning</th>
+              <th>Skala</th>
+              <th>Bra ser ut som</th>
+              <th>Normaliserat?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>BLEU</strong><br><span class="muted" style="font-size:11px">Bilingual Evaluation Understudy</span></td>
+              <td>Andel n-gram (ordsekvenser) som matchar referensen.</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>0 – 1</td>
+              <td>BLEU &gt; 0.45 för domänspecifik text</td>
+              <td>Nej (redan 0–1)</td>
+            </tr>
+            <tr>
+              <td><strong>ChrF</strong><br><span class="muted" style="font-size:11px">Character n-gram F-score</span></td>
+              <td>Som BLEU men på teckennivå — bättre för morfologirika språk som arabiska.</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>0 – 1</td>
+              <td>ChrF &gt; 0.55</td>
+              <td>Nej</td>
+            </tr>
+            <tr>
+              <td><strong>METEOR</strong><br><span class="muted" style="font-size:11px">Metric for Evaluation of Translation with Explicit ORdering</span></td>
+              <td>Tar hänsyn till synonymer och stemming — ger ett mer rättvist ordmatchningsresultat.</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>0 – 1</td>
+              <td>METEOR &gt; 0.50</td>
+              <td>Nej</td>
+            </tr>
+            <tr>
+              <td><strong>TER</strong><br><span class="muted" style="font-size:11px">Translation Edit Rate</span></td>
+              <td>Hur många redigeringar som krävs för att göra om AI:ns text till referensen.</td>
+              <td><span class="status-pill warn"><span class="dot"></span>Lägre = bättre</span></td>
+              <td>0 – ∞ (vanligen 0–1)</td>
+              <td>TER &lt; 0.40</td>
+              <td>Ja — inverterat</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ Semantisk kvalitet ============ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-title">Översättning — Semantisk kvalitet</div>
+      </div>
+      <p class="section-desc">Mäter om AI:ns text har <em>samma innebörd</em> som referensen, oberoende av exakt ordval.</p>
+
+      <div class="card">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Mått</th>
+              <th>Vad det mäter</th>
+              <th>Riktning</th>
+              <th>Skala</th>
+              <th>Bra ser ut som</th>
+              <th>Normaliserat?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>BERTScore F1</strong></td>
+              <td>Jämför textens semantiska innehåll via en språkmodell (BERT). F1 = balans mellan precision och täckning.</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>0 – 1 (i praktiken 0.7–1.0)</td>
+              <td>BERTScore &gt; 0.88</td>
+              <td>Nej</td>
+            </tr>
+            <tr>
+              <td><strong>BLASER-text</strong><br><span class="muted" style="font-size:11px">FAIR / Meta AI</span></td>
+              <td>Mäter semantisk likhet i textuell översättning via flerspråkiga inbäddningar.</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>1 – 5</td>
+              <td>BLASER-text &gt; 4.0</td>
+              <td>Ja — normaliserat till 0–1</td>
+            </tr>
+            <tr>
+              <td><strong>COMET</strong></td>
+              <td>Tränad på mänskliga kvalitetsbedömningar av översättningar — korrelerar väl med mänskliga omdömen.</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>0 – 1</td>
+              <td>COMET &gt; 0.85</td>
+              <td>Nej</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ Tal-semantik ============ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-title">Översättning — Tal-semantik</div>
+      </div>
+      <p class="section-desc">Unik för tal-till-tal-modeller: mäter om AI:ns talade output har rätt innebörd utan att gå via text som mellansteg.</p>
+
+      <div class="card">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Mått</th>
+              <th>Vad det mäter</th>
+              <th>Riktning</th>
+              <th>Skala</th>
+              <th>Bra ser ut som</th>
+              <th>Normaliserat?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>BLASER-speech</strong><br><span class="muted" style="font-size:11px">FAIR / Meta AI</span></td>
+              <td>Som BLASER-text men direkt på talljudsfiler — ingen mellanliggande transkription krävs.</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>1 – 5</td>
+              <td>BLASER-speech &gt; 3.8</td>
+              <td>Ja — normaliserat till 0–1</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ Termer ============ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-title">Tekniska termer</div>
+      </div>
+      <p class="section-desc">Mäter hur bra AI-tolken hanterar de fackord som finns i ordlistan — både om rätt ord väljs och om det uttalas/skrivs rätt.</p>
+
+      <div class="card">
+        <table class="data">
+          <thead>
+            <tr>
+              <th>Mått</th>
+              <th>Vad det mäter</th>
+              <th>Riktning</th>
+              <th>Skala</th>
+              <th>Bra ser ut som</th>
+              <th>Normaliserat?</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Term Accuracy</strong><br><span class="muted" style="font-size:11px">Retriever-baserad</span></td>
+              <td>Andel termtillfällen där AI:n valde rätt ord enligt ordlistan (hämtat via semantisk sökning).</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>0 – 1</td>
+              <td>Term Accuracy &gt; 0.80 <span class="config-tag">konfigurerbart</span></td>
+              <td>Nej</td>
+            </tr>
+            <tr>
+              <td><strong>Morphological Term Accuracy</strong></td>
+              <td>Som Term Accuracy men tillåter böjningsformer — mäter om rätt stamord används.</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>0 – 1</td>
+              <td>&gt; 0.82</td>
+              <td>Nej</td>
+            </tr>
+            <tr>
+              <td><strong>Domain Consistency</strong></td>
+              <td>Andel termtillfällen där AI:n konsekvent använder samma term för samma begrepp inom ett samtal.</td>
+              <td><span class="status-pill good"><span class="dot"></span>Högre = bättre</span></td>
+              <td>0 – 1</td>
+              <td>Domain Consistency &gt; 0.98 <span class="config-tag">konfigurerbart</span></td>
+              <td>Nej</td>
+            </tr>
+            <tr>
+              <td><strong>Term WER</strong></td>
+              <td>Word Error Rate specifikt för termerna i ordlistan (exkluderar icke-termer).</td>
+              <td><span class="status-pill warn"><span class="dot"></span>Lägre = bättre</span></td>
+              <td>0 – 1</td>
+              <td>Term WER &lt; 0.10 <span class="config-tag">konfigurerbart</span></td>
+              <td>Ja — inverterat</td>
+            </tr>
+            <tr>
+              <td><strong>Term CER</strong></td>
+              <td>Character Error Rate specifikt för termerna — bra för skriftsystem som arabiska och ryska.</td>
+              <td><span class="status-pill warn"><span class="dot"></span>Lägre = bättre</span></td>
+              <td>0 – 1</td>
+              <td>Term CER &lt; 0.05</td>
+              <td>Ja — inverterat</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ============ Hur vi slår ihop ============ -->
+    <section class="section">
+      <div class="section-head">
+        <div class="section-title">Hur beräknar vi den samlade poängen?</div>
+      </div>
+      <div class="glossary-box" style="margin-bottom:0">
+        <div class="gb-title">Metod</div>
+        <dl>
+          <dt>Normalisering</dt>
+          <dd>Varje mätvärde normaliseras till skalan 0–1, där 1 = bästa möjliga resultat. För mätvärden där lägre är bättre (WER, TER) inverteras de: poäng = 1 − originalvärde.</dd>
+          <dt>Viktning</dt>
+          <dd>Transkription (WER, CER): 20% · Lexikal trohet (BLEU, ChrF, METEOR, TER): 20% · Semantisk kvalitet (BERTScore, BLASER-text, COMET): 30% · Tal-semantik (BLASER-speech): 10% · Termer (Term Accuracy, Domain Consistency, Term WER, Term CER): 20%.</dd>
+          <dt>Tolkmodell-delta</dt>
+          <dd>Deltat (▲/▼) jämförs mot senaste körning med samma tolkmodell och samma dataunderlag.</dd>
+        </dl>
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
