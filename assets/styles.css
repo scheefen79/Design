@@ -525,6 +525,223 @@ table.data .num { text-align: right; font-variant-numeric: tabular-nums; }
 .spacer-md { height: 16px; }
 .spacer-lg { height: 24px; }
 
+/* =========================================================
+   Presentation-only additions (no analysis layer)
+   ========================================================= */
+
+/* Plain KPI variant — no left status bar, soft brand fill */
+.kpi.plain {
+  background: linear-gradient(180deg, #f5f0ff 0%, #ffffff 100%);
+  border-color: #ece4ff;
+}
+.kpi.plain::before { display: none; }
+.kpi.plain .kpi-value { color: var(--brand-800); }
+
+/* Larger value style for hero KPI */
+.kpi-value.lg { font-size: 32px; }
+
+/* Section description block under section title */
+.section-desc {
+  font-size: 13.5px;
+  color: var(--ink-600);
+  margin-top: -4px;
+  margin-bottom: 14px;
+  max-width: 820px;
+  line-height: 1.55;
+}
+
+/* Plain bar — single brand color, no status */
+.hbar-fill.plain { background: var(--brand-700); }
+
+/* Wider label column variant for term bars (long Arabic+Swedish strings) */
+.hbar-row.wide-label {
+  grid-template-columns: 320px 1fr 60px;
+}
+.hbar-row.wide-label .hbar-label { font-size: 12.5px; }
+.axis-row.wide-label {
+  grid-template-columns: 320px 1fr 60px;
+}
+
+/* Filter strip */
+.filters {
+  background: var(--card);
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-md);
+  padding: 16px 18px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+.filter-field { display: flex; flex-direction: column; gap: 6px; }
+.filter-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-500);
+  font-weight: 600;
+}
+.filter-control {
+  display: flex; align-items: center; gap: 6px;
+  background: #1f1230;
+  color: #fff;
+  border: 1px solid #311a55;
+  border-radius: 10px;
+  padding: 9px 12px;
+  font-size: 13px;
+  min-height: 40px;
+  flex-wrap: wrap;
+}
+.filter-control .placeholder { color: #b8a8d6; }
+.filter-control .caret { margin-left: auto; opacity: 0.7; }
+.filter-chip {
+  background: #c4b5fd;
+  color: #2e1065;
+  border-radius: 999px;
+  padding: 3px 9px;
+  font-size: 12px;
+  font-weight: 600;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.filter-chip .x { opacity: 0.6; cursor: pointer; }
+.filter-control.search { background: #f8f4ff; color: var(--ink-800); border-color: #ddd1ff; }
+.filter-control.search .placeholder { color: var(--ink-500); }
+
+/* Accordion (suite list) */
+.accordion {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.accordion-item {
+  background: var(--card);
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.accordion-head {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 14px 18px;
+  cursor: pointer;
+  background: #f8f4ff;
+  transition: background 120ms;
+}
+.accordion-head:hover { background: #f0e8ff; }
+.accordion-head .title {
+  font-weight: 700; font-size: 14px; color: var(--brand-800);
+  display: flex; align-items: center; gap: 10px;
+}
+.accordion-head .caret { color: var(--brand-700); font-size: 14px; }
+.accordion-item.open .accordion-head { background: #ede4ff; }
+.accordion-body {
+  padding: 18px;
+  display: none;
+  border-top: 1px solid var(--ink-200);
+  background: #faf7ff;
+}
+.accordion-item.open .accordion-body { display: block; }
+
+/* Subsection header (small caps eyebrow, like TERM TRANSLATION) */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--brand-700);
+  font-weight: 700;
+  margin: 18px 0 10px;
+}
+
+/* Reference / metric definition card */
+.refcard {
+  background: var(--card);
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-md);
+  padding: 14px 16px;
+  display: flex; flex-direction: column; gap: 6px;
+  box-shadow: var(--shadow-sm);
+}
+.refcard .name {
+  font-size: 14px; font-weight: 700; color: var(--brand-800);
+}
+.refcard .desc {
+  font-size: 12.5px; color: var(--ink-600); line-height: 1.5;
+}
+.refcard .tags { display: flex; gap: 6px; margin-top: 4px; flex-wrap: wrap; }
+.tag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 999px;
+}
+.tag.up   { background: var(--good-100); color: var(--good-700); }
+.tag.down { background: var(--bad-100);  color: var(--bad-700);  }
+.tag.range { background: var(--ink-100); color: var(--ink-700); }
+
+/* Three-column refcard grid */
+.refgrid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+@media (max-width: 1100px) { .refgrid-3 { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 700px)  { .refgrid-3 { grid-template-columns: 1fr; } }
+
+/* Two-column (chart + table) layout used heavily on these pages */
+.dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  align-items: stretch;
+}
+@media (max-width: 1100px) { .dual { grid-template-columns: 1fr; } }
+.dual > .card { display: flex; flex-direction: column; }
+
+/* Term-pair label tweak: keep Arabic readable, allow rtl mix */
+.term-pair { font-feature-settings: "liga" off; }
+.term-pair bdi { unicode-bidi: isolate; }
+
+/* Landing component grid */
+.lcards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+@media (max-width: 900px) { .lcards { grid-template-columns: 1fr; } }
+.lcard {
+  background: var(--card);
+  border: 1px solid var(--ink-200);
+  border-radius: var(--radius-md);
+  padding: 18px 20px;
+  text-decoration: none;
+  color: inherit;
+  display: flex; flex-direction: column; gap: 8px;
+  transition: transform 140ms, box-shadow 140ms, border-color 140ms;
+  box-shadow: var(--shadow-sm);
+}
+.lcard:hover {
+  transform: translateY(-2px);
+  border-color: #d8c8ff;
+  box-shadow: 0 8px 18px rgba(76,29,149,0.10);
+}
+.lcard .lcard-icon {
+  width: 38px; height: 38px;
+  border-radius: 10px;
+  background: var(--brand-100);
+  display: grid; place-items: center;
+  font-size: 18px;
+}
+.lcard .lcard-title {
+  font-weight: 700; color: var(--ink-900); font-size: 15px;
+}
+.lcard .lcard-desc {
+  font-size: 13px; color: var(--ink-600); line-height: 1.5;
+}
+.lcard .lcard-cta {
+  font-size: 12px; font-weight: 600; color: var(--brand-700);
+  margin-top: auto;
+}
+
 /* small responsive */
 @media (max-width: 1200px) {
   .kpi-grid { grid-template-columns: repeat(3, 1fr); }

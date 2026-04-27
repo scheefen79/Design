@@ -23,20 +23,20 @@
 
       <div class="nav-group">
         <div class="nav-label">Overview</div>
-        <a class="nav-item" href="index.html"><span class="nav-icon">●</span> Executive Overview</a>
+        <a class="nav-item" href="index.html"><span class="nav-icon">🏠</span> Landing</a>
       </div>
 
       <div class="nav-group">
         <div class="nav-label">Main components</div>
-        <a class="nav-item" href="#"><span class="nav-icon">▦</span> Dataset Coverage</a>
-        <a class="nav-item" href="glossary-coverage.html"><span class="nav-icon">▤</span> Glossary Coverage</a>
-        <a class="nav-item active" href="benchmark-evaluation.html"><span class="nav-icon">◎</span> Benchmark Evaluation</a>
-        <a class="nav-item" href="#"><span class="nav-icon">▥</span> Glossary Consumption</a>
+        <a class="nav-item" href="dataset-coverage.html"><span class="nav-icon">📊</span> Dataset Coverage</a>
+        <a class="nav-item" href="glossary-coverage.html"><span class="nav-icon">📚</span> Glossary Coverage</a>
+        <a class="nav-item active" href="benchmark-evaluation.html"><span class="nav-icon">🎯</span> Benchmark Evaluation</a>
+        <a class="nav-item" href="glossary-consumption.html"><span class="nav-icon">📈</span> Glossary Consumption</a>
       </div>
 
       <div class="nav-group">
         <div class="nav-label">Reference</div>
-        <a class="nav-item" href="#"><span class="nav-icon">▭</span> Metrics Definitions</a>
+        <a class="nav-item" href="metrics-definitions.html"><span class="nav-icon">📖</span> Metrics Definitions</a>
       </div>
 
       <div class="sidebar-foot">
@@ -56,402 +56,327 @@
       <header class="page-header">
         <div class="crumbs">Main components</div>
         <h1>🎯 Benchmark Evaluation</h1>
-        <p>How our AI interpretations score against human reference — across transcription, translation, and technical-term fidelity.</p>
+        <p>Scores model outputs against benchmark ground-truth across transcription accuracy, translation quality, and technical term fidelity.</p>
       </header>
 
-      <!-- ============== Headline ============== -->
-      <div class="headline" style="margin-bottom:22px">
-        <div class="headline-icon">⚠</div>
-        <div>
-          <div class="headline-title">Quality is not yet good enough for critical use</div>
-          <ul style="font-size:13.5px">
-            <li>Translation quality and terminology accuracy both sit at <strong>~65–70%</strong>, below the 80% target.</li>
-            <li><strong>Terminology</strong> is the biggest contributor to errors.</li>
-            <li><strong>Run-to-run variation</strong> is creeping up — same input giving different outputs.</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- ============== KPI strip ============== -->
       <section class="section">
-        <div class="section-head">
-          <div class="section-title">1 · Status at a glance</div>
-          <div class="section-sub">vs. human reference · target ≥ 80% for quality, ≥ 0.98 for consistency</div>
-        </div>
+        <p class="section-desc" style="margin-top:0">
+          Benchmark results are organised into <strong>five suites</strong> — each reflecting a different facet of the Transvoice pipeline:
+          <em>Transcription</em>, <em>Translation</em>, <em>Technical Terms</em>, <em>Register</em>, and <em>Tone</em>.
+          Expand a suite below to filter and explore how its metrics trend over evaluation runs.
+        </p>
 
-        <div class="kpi-grid k4">
+        <div class="accordion">
 
-          <div class="kpi warn">
-            <div style="display:flex; justify-content:space-between; align-items:center">
-              <span class="kpi-label">Translation quality</span>
-              <span class="status-pill warn"><span class="dot"></span>Watch</span>
+          <!-- Transcription -->
+          <div class="accordion-item">
+            <div class="accordion-head">
+              <div class="title">🎤 Transcription Benchmark</div>
+              <div class="caret">▾</div>
             </div>
-            <div class="kpi-value">~65–70%</div>
-            <div class="kpi-meta">
-              <span class="kpi-target">Target ≥ 80%</span>
-              <span class="kpi-delta up">▲ slight</span>
-            </div>
-            <div class="kpi-interp">AI interprets correctly in ~2 of 3 cases.</div>
           </div>
 
-          <div class="kpi warn">
-            <div style="display:flex; justify-content:space-between; align-items:center">
-              <span class="kpi-label">Terminology accuracy</span>
-              <span class="status-pill warn"><span class="dot"></span>Watch</span>
+          <!-- Translation -->
+          <div class="accordion-item">
+            <div class="accordion-head">
+              <div class="title">🌐 Translation Benchmark</div>
+              <div class="caret">▾</div>
             </div>
-            <div class="kpi-value">~65–70%</div>
-            <div class="kpi-meta">
-              <span class="kpi-target">Target ≥ 80%</span>
-              <span class="kpi-delta up">▲ slight</span>
-            </div>
-            <div class="kpi-interp">Specialist terms used correctly in ~2 of 3 cases.</div>
           </div>
 
-          <div class="kpi warn">
-            <div style="display:flex; justify-content:space-between; align-items:center">
-              <span class="kpi-label">Stability over time</span>
-              <span class="status-pill warn"><span class="dot"></span>Watch</span>
+          <!-- Technical Terms (open) -->
+          <div class="accordion-item open">
+            <div class="accordion-head">
+              <div class="title">🔬 Technical Terms Benchmark</div>
+              <div class="caret">▴</div>
             </div>
-            <div class="kpi-value sm">Slightly rising</div>
-            <div class="kpi-meta">
-              <span class="kpi-target">Goal: stable + improving</span>
-            </div>
-            <div class="kpi-interp">Quality is improving but not stable yet.</div>
-          </div>
+            <div class="accordion-body">
 
-          <div class="kpi bad">
-            <div style="display:flex; justify-content:space-between; align-items:center">
-              <span class="kpi-label">Overall verdict</span>
-              <span class="status-pill bad"><span class="dot"></span>Risk</span>
-            </div>
-            <div class="kpi-value sm">Not good enough</div>
-            <div class="kpi-meta">
-              <span class="kpi-target">For critical use</span>
-            </div>
-            <div class="kpi-interp">Biggest issues: terminology and run-to-run variation.</div>
-          </div>
+              <p class="section-desc">
+                Evaluates technical-term translation accuracy using glossary-based matching, both at utterance and conversation level.
+              </p>
 
-        </div>
-      </section>
-
-      <!-- ============== Three quality views ============== -->
-      <section class="section">
-        <div class="section-head">
-          <div class="section-title">2 · The three questions we ask of each run</div>
-          <div class="section-sub">Charts compare AI interpretation vs. human reference. Target line shown in green.</div>
-        </div>
-
-        <div class="split-2" style="grid-template-columns: 1fr 1fr 1fr; gap:16px;">
-
-          <!-- Question 1 -->
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <div class="card-title">How often do we get it right?</div>
-                <div class="card-sub">Share of correct interpretations over time.</div>
+              <div class="filters">
+                <div class="filter-field">
+                  <span class="filter-label">Dataset</span>
+                  <div class="filter-control">
+                    <span>All</span><span class="caret">▾</span>
+                  </div>
+                </div>
+                <div class="filter-field">
+                  <span class="filter-label">Glossary</span>
+                  <div class="filter-control">
+                    <span>All</span><span class="caret">▾</span>
+                  </div>
+                </div>
+                <div class="filter-field">
+                  <span class="filter-label">Interpreter</span>
+                  <div class="filter-control">
+                    <span class="filter-chip">gpt-realtime-1.5 <span class="x">×</span></span>
+                    <span class="filter-chip">oracle <span class="x">×</span></span>
+                    <span class="caret">▾</span>
+                  </div>
+                </div>
               </div>
-              <span class="status-pill warn"><span class="dot"></span>Watch</span>
-            </div>
-            <svg class="linechart" viewBox="0 0 600 180" preserveAspectRatio="none">
-              <g class="grid">
-                <line x1="40" y1="20"  x2="590" y2="20"/>
-                <line x1="40" y1="60"  x2="590" y2="60"/>
-                <line x1="40" y1="100" x2="590" y2="100"/>
-                <line x1="40" y1="140" x2="590" y2="140"/>
-              </g>
-              <g class="axis">
-                <text x="6" y="24">100%</text>
-                <text x="6" y="64">75%</text>
-                <text x="6" y="104">50%</text>
-                <text x="6" y="144">25%</text>
-              </g>
-              <line class="target" x1="40" y1="48" x2="590" y2="48"/>
-              <text class="target-label" x="546" y="44">Target 80%</text>
-              <!-- ~65-70% wobble, slight uptrend -->
-              <polyline class="series-b" points="
-                40,80 90,86 140,82 190,84 240,80 290,76 340,72 390,76 440,72 490,76 540,80 590,86
-              "/>
-              <g class="dot-b">
-                <circle cx="40" cy="80" r="3"/>
-                <circle cx="140" cy="82" r="3"/>
-                <circle cx="240" cy="80" r="3"/>
-                <circle cx="340" cy="72" r="3"/>
-                <circle cx="440" cy="72" r="3"/>
-                <circle cx="540" cy="80" r="3"/>
-                <circle cx="590" cy="86" r="3"/>
-              </g>
-              <g class="axis">
-                <text x="40"  y="172">Apr 22 15:00</text>
-                <text x="280" y="172">Apr 23 03:00</text>
-                <text x="500" y="172">Apr 23 09:00</text>
-              </g>
-            </svg>
-            <div class="legend">
-              <span><span class="swatch" style="background:var(--brand-600)"></span>AI vs. human reference</span>
-              <span><span class="swatch" style="background:var(--good-600); height:2px"></span>Target</span>
-            </div>
-          </div>
 
-          <!-- Question 2 -->
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <div class="card-title">How much do we capture?</div>
-                <div class="card-sub">Share of relevant terms recovered.</div>
+              <div class="eyebrow">Term translation</div>
+              <div class="dual">
+
+                <!-- Term Accuracy (Retriever) -->
+                <div class="card">
+                  <div class="card-head">
+                    <div>
+                      <div class="card-title">Term Accuracy (Retriever) Over Time</div>
+                      <div class="card-sub">Exact / semantic term match accuracy per run.</div>
+                    </div>
+                  </div>
+                  <svg class="linechart" viewBox="0 0 600 200" preserveAspectRatio="none" style="height:200px">
+                    <g class="grid">
+                      <line x1="40" y1="20"  x2="590" y2="20"/>
+                      <line x1="40" y1="60"  x2="590" y2="60"/>
+                      <line x1="40" y1="100" x2="590" y2="100"/>
+                      <line x1="40" y1="140" x2="590" y2="140"/>
+                    </g>
+                    <g class="axis">
+                      <text x="6" y="24">1.0</text>
+                      <text x="6" y="64">0.9</text>
+                      <text x="6" y="104">0.8</text>
+                      <text x="6" y="144">0.7</text>
+                    </g>
+                    <!-- oracle: single point near 1.0 -->
+                    <circle class="dot-a" cx="80" cy="22" r="4"/>
+                    <!-- gpt-realtime-1.5: 0.65 → 0.68 -->
+                    <polyline class="series-b" points="80,160 540,150"/>
+                    <circle class="dot-b" cx="80" cy="160" r="3"/>
+                    <circle class="dot-b" cx="540" cy="150" r="3"/>
+                    <g class="axis">
+                      <text x="40"  y="186">Apr 22 15:00</text>
+                      <text x="280" y="186">Apr 23 03:00</text>
+                      <text x="490" y="186">Apr 23 09:00</text>
+                      <text x="280" y="198" text-anchor="middle">Run Date</text>
+                    </g>
+                  </svg>
+                  <div class="legend">
+                    <span><span class="swatch" style="background:#4c1d95"></span>oracle</span>
+                    <span><span class="swatch" style="background:var(--brand-600)"></span>gpt-realtime-1.5</span>
+                  </div>
+                </div>
+
+                <!-- Term Recall (Retriever) -->
+                <div class="card">
+                  <div class="card-head">
+                    <div>
+                      <div class="card-title">Term Recall (Retriever) Over Time</div>
+                      <div class="card-sub">Share of relevant terms recovered per run.</div>
+                    </div>
+                  </div>
+                  <svg class="linechart" viewBox="0 0 600 200" preserveAspectRatio="none" style="height:200px">
+                    <g class="grid">
+                      <line x1="40" y1="20"  x2="590" y2="20"/>
+                      <line x1="40" y1="60"  x2="590" y2="60"/>
+                      <line x1="40" y1="100" x2="590" y2="100"/>
+                      <line x1="40" y1="140" x2="590" y2="140"/>
+                    </g>
+                    <g class="axis">
+                      <text x="6" y="24">1.0</text>
+                      <text x="6" y="64">0.9</text>
+                      <text x="6" y="104">0.8</text>
+                      <text x="6" y="144">0.7</text>
+                    </g>
+                    <circle class="dot-a" cx="80" cy="22" r="4"/>
+                    <polyline class="series-b" points="80,160 540,150"/>
+                    <circle class="dot-b" cx="80" cy="160" r="3"/>
+                    <circle class="dot-b" cx="540" cy="150" r="3"/>
+                    <g class="axis">
+                      <text x="40"  y="186">Apr 22 15:00</text>
+                      <text x="280" y="186">Apr 23 03:00</text>
+                      <text x="490" y="186">Apr 23 09:00</text>
+                      <text x="280" y="198" text-anchor="middle">Run Date</text>
+                    </g>
+                  </svg>
+                  <div class="legend">
+                    <span><span class="swatch" style="background:#4c1d95"></span>oracle</span>
+                    <span><span class="swatch" style="background:var(--brand-600)"></span>gpt-realtime-1.5</span>
+                  </div>
+                </div>
+
+                <!-- Term Accuracy (Morphological) -->
+                <div class="card">
+                  <div class="card-head">
+                    <div>
+                      <div class="card-title">Term Accuracy (Morphological) Over Time</div>
+                      <div class="card-sub">Fuzzy morphological match accuracy per run.</div>
+                    </div>
+                  </div>
+                  <svg class="linechart" viewBox="0 0 600 200" preserveAspectRatio="none" style="height:200px">
+                    <g class="grid">
+                      <line x1="40" y1="20"  x2="590" y2="20"/>
+                      <line x1="40" y1="60"  x2="590" y2="60"/>
+                      <line x1="40" y1="100" x2="590" y2="100"/>
+                      <line x1="40" y1="140" x2="590" y2="140"/>
+                    </g>
+                    <g class="axis">
+                      <text x="6" y="24">0.95</text>
+                      <text x="6" y="64">0.85</text>
+                      <text x="6" y="104">0.75</text>
+                      <text x="6" y="144">0.65</text>
+                    </g>
+                    <circle class="dot-a" cx="80" cy="30" r="4"/>
+                    <polyline class="series-b" points="80,148 540,148"/>
+                    <circle class="dot-b" cx="80" cy="148" r="3"/>
+                    <circle class="dot-b" cx="540" cy="148" r="3"/>
+                    <g class="axis">
+                      <text x="40"  y="186">Apr 22 15:00</text>
+                      <text x="280" y="186">Apr 23 03:00</text>
+                      <text x="490" y="186">Apr 23 09:00</text>
+                      <text x="280" y="198" text-anchor="middle">Run Date</text>
+                    </g>
+                  </svg>
+                  <div class="legend">
+                    <span><span class="swatch" style="background:#4c1d95"></span>oracle</span>
+                    <span><span class="swatch" style="background:var(--brand-600)"></span>gpt-realtime-1.5</span>
+                  </div>
+                </div>
+
+                <!-- Term Recall (Morphological) -->
+                <div class="card">
+                  <div class="card-head">
+                    <div>
+                      <div class="card-title">Term Recall (Morphological) Over Time</div>
+                      <div class="card-sub">Share of morphologically-matched terms recovered.</div>
+                    </div>
+                  </div>
+                  <svg class="linechart" viewBox="0 0 600 200" preserveAspectRatio="none" style="height:200px">
+                    <g class="grid">
+                      <line x1="40" y1="20"  x2="590" y2="20"/>
+                      <line x1="40" y1="60"  x2="590" y2="60"/>
+                      <line x1="40" y1="100" x2="590" y2="100"/>
+                      <line x1="40" y1="140" x2="590" y2="140"/>
+                    </g>
+                    <g class="axis">
+                      <text x="6" y="24">0.95</text>
+                      <text x="6" y="64">0.85</text>
+                      <text x="6" y="104">0.75</text>
+                      <text x="6" y="144">0.65</text>
+                    </g>
+                    <circle class="dot-a" cx="80" cy="30" r="4"/>
+                    <polyline class="series-b" points="80,148 540,148"/>
+                    <circle class="dot-b" cx="80" cy="148" r="3"/>
+                    <circle class="dot-b" cx="540" cy="148" r="3"/>
+                    <g class="axis">
+                      <text x="40"  y="186">Apr 22 15:00</text>
+                      <text x="280" y="186">Apr 23 03:00</text>
+                      <text x="490" y="186">Apr 23 09:00</text>
+                      <text x="280" y="198" text-anchor="middle">Run Date</text>
+                    </g>
+                  </svg>
+                  <div class="legend">
+                    <span><span class="swatch" style="background:#4c1d95"></span>oracle</span>
+                    <span><span class="swatch" style="background:var(--brand-600)"></span>gpt-realtime-1.5</span>
+                  </div>
+                </div>
+
               </div>
-              <span class="status-pill warn"><span class="dot"></span>Watch</span>
-            </div>
-            <svg class="linechart" viewBox="0 0 600 180" preserveAspectRatio="none">
-              <g class="grid">
-                <line x1="40" y1="20"  x2="590" y2="20"/>
-                <line x1="40" y1="60"  x2="590" y2="60"/>
-                <line x1="40" y1="100" x2="590" y2="100"/>
-                <line x1="40" y1="140" x2="590" y2="140"/>
-              </g>
-              <g class="axis">
-                <text x="6" y="24">100%</text>
-                <text x="6" y="64">75%</text>
-                <text x="6" y="104">50%</text>
-                <text x="6" y="144">25%</text>
-              </g>
-              <line class="target" x1="40" y1="48" x2="590" y2="48"/>
-              <text class="target-label" x="546" y="44">Target 80%</text>
-              <polyline class="series-b" points="
-                40,80 90,82 140,76 190,80 240,84 290,80 340,76 390,80 440,82 490,86 540,90 590,92
-              "/>
-              <g class="dot-b">
-                <circle cx="40" cy="80" r="3"/>
-                <circle cx="140" cy="76" r="3"/>
-                <circle cx="240" cy="84" r="3"/>
-                <circle cx="340" cy="76" r="3"/>
-                <circle cx="440" cy="82" r="3"/>
-                <circle cx="540" cy="90" r="3"/>
-                <circle cx="590" cy="92" r="3"/>
-              </g>
-              <g class="axis">
-                <text x="40"  y="172">Apr 22 15:00</text>
-                <text x="280" y="172">Apr 23 03:00</text>
-                <text x="500" y="172">Apr 23 09:00</text>
-              </g>
-            </svg>
-            <div class="legend">
-              <span><span class="swatch" style="background:var(--brand-600)"></span>AI vs. human reference</span>
-              <span><span class="swatch" style="background:var(--good-600); height:2px"></span>Target</span>
-            </div>
-          </div>
 
-          <!-- Question 3 -->
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <div class="card-title">Is it consistent run-to-run?</div>
-                <div class="card-sub">Same input, same output? Higher = more stable.</div>
+              <div class="eyebrow">Domain consistency</div>
+
+              <div class="card">
+                <div class="card-head">
+                  <div>
+                    <div class="card-title">Domain Consistency Over Time</div>
+                    <div class="card-sub">Consistency of term usage across the conversation.</div>
+                  </div>
+                </div>
+                <svg class="linechart" viewBox="0 0 600 200" preserveAspectRatio="none" style="height:200px">
+                  <g class="grid">
+                    <line x1="50" y1="20"  x2="590" y2="20"/>
+                    <line x1="50" y1="50"  x2="590" y2="50"/>
+                    <line x1="50" y1="80"  x2="590" y2="80"/>
+                    <line x1="50" y1="110" x2="590" y2="110"/>
+                    <line x1="50" y1="140" x2="590" y2="140"/>
+                  </g>
+                  <g class="axis">
+                    <text x="6" y="24">1.00</text>
+                    <text x="6" y="54">0.99</text>
+                    <text x="6" y="84">0.97</text>
+                    <text x="6" y="114">0.95</text>
+                    <text x="6" y="144">0.94</text>
+                  </g>
+                  <circle class="dot-a" cx="100" cy="22" r="4"/>
+                  <polyline class="series-b" points="100,135 540,118"/>
+                  <circle class="dot-b" cx="100" cy="135" r="3"/>
+                  <circle class="dot-b" cx="540" cy="118" r="3"/>
+                  <g class="axis">
+                    <text x="50"  y="180">Apr 22 15:00</text>
+                    <text x="290" y="180">Apr 23 03:00</text>
+                    <text x="490" y="180">Apr 23 09:00</text>
+                    <text x="290" y="194" text-anchor="middle">Run Date</text>
+                  </g>
+                </svg>
+                <div class="legend">
+                  <span><span class="swatch" style="background:#4c1d95"></span>oracle</span>
+                  <span><span class="swatch" style="background:var(--brand-600)"></span>gpt-realtime-1.5</span>
+                </div>
               </div>
-              <span class="status-pill bad"><span class="dot"></span>Risk</span>
-            </div>
-            <svg class="linechart" viewBox="0 0 600 180" preserveAspectRatio="none">
-              <g class="grid">
-                <line x1="40" y1="20"  x2="590" y2="20"/>
-                <line x1="40" y1="60"  x2="590" y2="60"/>
-                <line x1="40" y1="100" x2="590" y2="100"/>
-                <line x1="40" y1="140" x2="590" y2="140"/>
-              </g>
-              <g class="axis">
-                <text x="6" y="24">1.00</text>
-                <text x="6" y="64">0.97</text>
-                <text x="6" y="104">0.95</text>
-                <text x="6" y="144">0.92</text>
-              </g>
-              <line class="target" x1="40" y1="40" x2="590" y2="40"/>
-              <text class="target-label" x="546" y="36">Target 0.98</text>
-              <polyline class="series-b" points="
-                40,42 90,52 140,58 190,60 240,62 290,68 340,72 390,76 440,82 490,88 540,98 590,118
-              "/>
-              <g class="dot-b">
-                <circle cx="40" cy="42" r="3"/>
-                <circle cx="140" cy="58" r="3"/>
-                <circle cx="240" cy="62" r="3"/>
-                <circle cx="340" cy="72" r="3"/>
-                <circle cx="440" cy="82" r="3"/>
-                <circle cx="540" cy="98" r="3"/>
-                <circle cx="590" cy="118" r="3"/>
-              </g>
-              <g class="axis">
-                <text x="40"  y="172">Apr 22 15:00</text>
-                <text x="280" y="172">Apr 23 03:00</text>
-                <text x="500" y="172">Apr 23 09:00</text>
-              </g>
-            </svg>
-            <div class="legend">
-              <span><span class="swatch" style="background:var(--brand-600)"></span>Consistency across runs</span>
-              <span><span class="swatch" style="background:var(--good-600); height:2px"></span>Target</span>
-            </div>
-          </div>
 
-        </div>
-      </section>
-
-      <!-- ============== Insights ============== -->
-      <section class="section">
-        <div class="section-head">
-          <div class="section-title">3 · Key insights</div>
-        </div>
-        <div class="insights">
-          <div class="insight bad">
-            <div class="insight-icon">!</div>
-            <div>
-              <div class="insight-title">Terminology is the biggest problem</div>
-              <div class="insight-body">When the AI is wrong, it's most often a specialist-term problem. This compounds with low glossary coverage (4.7%).</div>
-            </div>
-          </div>
-          <div class="insight warn">
-            <div class="insight-icon">⤷</div>
-            <div>
-              <div class="insight-title">Run-to-run variation is rising</div>
-              <div class="insight-body">Domain consistency dropped from ~0.98 to ~0.94. Variation between runs makes it hard to trust any single result.</div>
-            </div>
-          </div>
-          <div class="insight good">
-            <div class="insight-icon">↗</div>
-            <div>
-              <div class="insight-title">Quality is gently improving</div>
-              <div class="insight-body">Term Accuracy and Recall are inching up — recent changes are moving the right way, just not fast enough.</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ============== Five suites ============== -->
-      <section class="section">
-        <div class="section-head">
-          <div class="section-title">4 · Benchmark suites</div>
-          <div class="section-sub">
-            Five suites, each covering a facet of the Transvoice pipeline. Status reflects worst metric in suite.
-          </div>
-        </div>
-
-        <div class="split-2" style="grid-template-columns: 1fr 1fr 1fr; gap:14px;">
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <div class="card-title">🎤 Transcription</div>
-                <div class="card-sub">Audio → text accuracy.</div>
+              <div class="eyebrow">Metric reference</div>
+              <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-500); font-weight:600; margin-bottom:10px">Term translation</div>
+              <div class="refgrid-3">
+                <div class="refcard">
+                  <div class="name">Term Accuracy (Retriever)</div>
+                  <div class="desc">Exact / semantic term match accuracy.</div>
+                  <div class="tags"><span class="tag up">↑ higher is better</span><span class="tag range">Range: 0–1</span></div>
+                </div>
+                <div class="refcard">
+                  <div class="name">Term Accuracy (Morphological)</div>
+                  <div class="desc">Fuzzy morphological match accuracy.</div>
+                  <div class="tags"><span class="tag up">↑ higher is better</span><span class="tag range">Range: 0–1</span></div>
+                </div>
+                <div class="refcard">
+                  <div class="name">Domain Consistency</div>
+                  <div class="desc">Consistency of term usage across the conversation.</div>
+                  <div class="tags"><span class="tag up">↑ higher is better</span><span class="tag range">Range: 0–1</span></div>
+                </div>
+                <div class="refcard">
+                  <div class="name">Conv. Accuracy (Retriever)</div>
+                  <div class="desc">Conversation-level retriever accuracy.</div>
+                  <div class="tags"><span class="tag up">↑ higher is better</span><span class="tag range">Range: 0–1</span></div>
+                </div>
+                <div class="refcard">
+                  <div class="name">Conv. Accuracy (Morphological)</div>
+                  <div class="desc">Conversation-level morphological accuracy.</div>
+                  <div class="tags"><span class="tag up">↑ higher is better</span><span class="tag range">Range: 0–1</span></div>
+                </div>
               </div>
-              <span class="status-pill warn"><span class="dot"></span>Watch</span>
-            </div>
-            <div class="muted" style="font-size:12.5px">Domain-Specific WER, Term Recall on transcripts.</div>
-          </div>
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <div class="card-title">🌐 Translation</div>
-                <div class="card-sub">Source → target language.</div>
-              </div>
-              <span class="status-pill warn"><span class="dot"></span>Watch</span>
-            </div>
-            <div class="muted" style="font-size:12.5px">Conv. Accuracy (Retriever &amp; Morphological).</div>
-          </div>
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <div class="card-title">🔬 Technical Terms</div>
-                <div class="card-sub">Glossary-anchored term fidelity.</div>
-              </div>
-              <span class="status-pill bad"><span class="dot"></span>Risk</span>
-            </div>
-            <div class="muted" style="font-size:12.5px">Term Accuracy (Retriever / Morphological), Domain Consistency.</div>
-          </div>
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <div class="card-title">📋 Register</div>
-                <div class="card-sub">Formal / informal tone match.</div>
-              </div>
-              <span class="status-pill good"><span class="dot"></span>OK</span>
-            </div>
-            <div class="muted" style="font-size:12.5px">Register match score.</div>
-          </div>
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <div class="card-title">🎵 Tone</div>
-                <div class="card-sub">Speaker tone preserved in output.</div>
-              </div>
-              <span class="status-pill good"><span class="dot"></span>OK</span>
-            </div>
-            <div class="muted" style="font-size:12.5px">Tone fidelity score.</div>
-          </div>
-          <div class="card">
-            <div class="card-head">
-              <div>
-                <div class="card-title">＋ All metric reference</div>
-                <div class="card-sub">Definitions for every metric.</div>
-              </div>
-            </div>
-            <div class="muted" style="font-size:12.5px">
-              Term Accuracy (Retriever &amp; Morphological), Term Recall, Domain Consistency, Conv. Accuracy, Domain-Specific WER.
-            </div>
-          </div>
-        </div>
-      </section>
 
-      <!-- ============== Recommended actions ============== -->
-      <section class="section">
-        <div class="section-head">
-          <div class="section-title">5 · What should we do next?</div>
-          <div class="section-sub">Auto-generated from amber and red metrics on this page.</div>
-        </div>
+              <div style="font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--ink-500); font-weight:600; margin: 18px 0 10px">Term transcription</div>
+              <div class="refgrid-3">
+                <div class="refcard">
+                  <div class="name">Domain-Specific WER</div>
+                  <div class="desc">Word Error Rate on utterances containing glossary source terms.</div>
+                  <div class="tags"><span class="tag down">↓ lower is better</span><span class="tag range">Range: 0–1+</span></div>
+                </div>
+              </div>
 
-        <table class="action-table">
-          <thead>
-            <tr>
-              <th style="width:20%">Issue</th>
-              <th style="width:9%">Severity</th>
-              <th style="width:24%">Evidence</th>
-              <th style="width:24%">Recommended action</th>
-              <th style="width:12%">Owner</th>
-              <th style="width:11%">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td class="issue">Translation quality below target</td>
-              <td class="severity-high">High</td>
-              <td class="evidence">Quality at <strong>~65–70%</strong> against an ≥80% target.</td>
-              <td>Run human evaluation on a sampled batch; do error analysis by domain &amp; language pair; review prompts.</td>
-              <td><span class="owner-chip">QA / Language</span></td>
-              <td class="status-progress">◐ In progress</td>
-            </tr>
-            <tr>
-              <td class="issue">Terminology errors dominate</td>
-              <td class="severity-high">High</td>
-              <td class="evidence">Terminology accuracy <strong>~65–70%</strong>; healthcare glossary covered at only <strong>1.1%</strong>.</td>
-              <td>Update glossary / knowledge layer; verify retrieval is firing; re-run technical-terms suite after each update.</td>
-              <td><span class="owner-chip">Glossary / Knowledge</span></td>
-              <td class="status-todo">● Not started</td>
-            </tr>
-            <tr>
-              <td class="issue">Run-to-run consistency declining</td>
-              <td class="severity-med">Medium</td>
-              <td class="evidence">Domain consistency drifted from ~0.98 to ~0.94.</td>
-              <td>Pin model + decoding params; replay last 24h of evals; isolate the change that introduced drift.</td>
-              <td><span class="owner-chip">Platform / ML</span></td>
-              <td class="status-todo">● Not started</td>
-            </tr>
-            <tr>
-              <td class="issue">No regression alerts on stability</td>
-              <td class="severity-low">Low</td>
-              <td class="evidence">Drift was detected manually after the fact.</td>
-              <td>Add a threshold alert when consistency drops below 0.96 for two consecutive runs.</td>
-              <td><span class="owner-chip">Platform / ML</span></td>
-              <td class="status-todo">● Not started</td>
-            </tr>
-          </tbody>
-        </table>
+            </div>
+          </div>
 
-        <div class="spacer-md"></div>
-        <div class="muted" style="font-size:12px">
-          Thresholds (configurable): <strong>Quality</strong> good ≥ 80%, watch 60–80%, risk &lt; 60%. <strong>Consistency</strong> good ≥ 0.98, watch 0.95–0.98, risk &lt; 0.95.
+          <!-- Register -->
+          <div class="accordion-item">
+            <div class="accordion-head">
+              <div class="title">📋 Register Benchmark</div>
+              <div class="caret">▾</div>
+            </div>
+          </div>
+
+          <!-- Tone -->
+          <div class="accordion-item">
+            <div class="accordion-head">
+              <div class="title">🎵 Tone Benchmark</div>
+              <div class="caret">▾</div>
+            </div>
+          </div>
+
         </div>
       </section>
 

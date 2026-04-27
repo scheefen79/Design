@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Evals Reporting · Glossary Consumption</title>
+  <link rel="stylesheet" href="assets/styles.css" />
+</head>
+<body>
+  <div class="app">
+
+    <!-- ============== Sidebar ============== -->
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="3" y="5" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+            <rect x="7" y="9" width="14" height="10" rx="2" stroke="#fff" stroke-width="1.6"/>
+          </svg>
+        </div>
+        <div class="brand-name">EVALS REPORTING</div>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Overview</div>
+        <a class="nav-item" href="index.html"><span class="nav-icon">🏠</span> Landing</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Main components</div>
+        <a class="nav-item" href="dataset-coverage.html"><span class="nav-icon">📊</span> Dataset Coverage</a>
+        <a class="nav-item" href="glossary-coverage.html"><span class="nav-icon">📚</span> Glossary Coverage</a>
+        <a class="nav-item" href="benchmark-evaluation.html"><span class="nav-icon">🎯</span> Benchmark Evaluation</a>
+        <a class="nav-item active" href="glossary-consumption.html"><span class="nav-icon">📈</span> Glossary Consumption</a>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Reference</div>
+        <a class="nav-item" href="metrics-definitions.html"><span class="nav-icon">📖</span> Metrics Definitions</a>
+      </div>
+
+      <div class="sidebar-foot">
+        <div class="data-block">
+          <div class="label">DATA</div>
+          <div>Last refreshed</div>
+          <div style="color:#fff">2026-04-24 12:59 UTC</div>
+        </div>
+        <span class="refresh">↻ Refresh data</span>
+        <div style="margin-top:14px; opacity:0.6">transvoice · v0.1.0</div>
+      </div>
+    </aside>
+
+    <!-- ============== Main ============== -->
+    <main class="main">
+
+      <header class="page-header">
+        <div class="crumbs">Main components</div>
+        <h1>📈 Glossary Consumption</h1>
+        <p>How frequently glossary terms are missed during translation runs — higher miss rate signals terms that need attention.</p>
+      </header>
+
+      <!-- ============== Filters ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Filters</div>
+        </div>
+        <p class="section-desc">Narrow the data shown below by interpreter or by individual run.</p>
+
+        <div class="filters" style="grid-template-columns: 1fr 1fr;">
+          <div class="filter-field">
+            <span class="filter-label">Interpreters</span>
+            <div class="filter-control">
+              <span class="filter-chip">gpt-realtime-1.5 <span class="x">×</span></span>
+              <span class="filter-chip">oracle <span class="x">×</span></span>
+              <span class="caret">▾</span>
+            </div>
+          </div>
+          <div class="filter-field">
+            <span class="filter-label">Run</span>
+            <div class="filter-control search">
+              <span>🔍</span>
+              <span class="placeholder">Filter by run</span>
+              <span class="caret">▾</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== Summary KPIs ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Summary</div>
+        </div>
+        <p class="section-desc">Overall consumption of the glossary across the selected interpreters and runs.</p>
+
+        <div class="kpi-grid k4">
+          <div class="kpi plain">
+            <span class="kpi-label">Overall miss rate</span>
+            <div class="kpi-value lg">22.6%</div>
+            <div class="kpi-interp">678 misses / 2,996 total</div>
+          </div>
+          <div class="kpi plain">
+            <span class="kpi-label">Total misses</span>
+            <div class="kpi-value lg">678</div>
+            <div class="kpi-interp">glossary terms not applied</div>
+          </div>
+          <div class="kpi plain">
+            <span class="kpi-label">Total hits</span>
+            <div class="kpi-value lg">2,318</div>
+            <div class="kpi-interp">glossary terms correctly applied</div>
+          </div>
+          <div class="kpi plain">
+            <span class="kpi-label">Runs</span>
+            <div class="kpi-value lg">14</div>
+            <div class="kpi-interp">evaluation runs included</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== Miss Rate by Domain ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Miss Rate by Domain</div>
+        </div>
+        <p class="section-desc">Share of glossary terms that were missed in each domain. Hits and misses show the underlying counts.</p>
+
+        <div class="dual">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Miss rate per domain</div>
+                <div class="card-sub">Bar length = miss rate %.</div>
+              </div>
+            </div>
+            <div class="hbar-list">
+              <div class="hbar-row">
+                <div class="hbar-label">social_services</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:25%"></div></div>
+                <div class="hbar-value">25%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">employment</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:23.9%"></div></div>
+                <div class="hbar-value">23.9%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">migration</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:22.5%"></div></div>
+                <div class="hbar-value">22.5%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">healthcare</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:19.2%"></div></div>
+                <div class="hbar-value">19.2%</div>
+              </div>
+              <div class="axis-row">
+                <div></div>
+                <div class="axis"><span>0%</span><span>20%</span><span>40%</span><span>60%</span><span>80%</span><span>100%</span></div>
+                <div></div>
+              </div>
+              <div style="font-size:11px; color: var(--ink-500); text-align:center; margin-top:4px">Miss Rate (%)</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Domain breakdown</div>
+                <div class="card-sub">Hits = correctly applied terms · Misses = terms that were missed.</div>
+              </div>
+            </div>
+            <table class="data">
+              <thead>
+                <tr>
+                  <th>Domain</th>
+                  <th class="num">Miss rate (%)</th>
+                  <th class="num">Hits</th>
+                  <th class="num">Misses</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>social_services</td><td class="num">25</td>  <td class="num">546</td><td class="num">182</td></tr>
+                <tr><td>employment</td>     <td class="num">23.9</td><td class="num">575</td><td class="num">181</td></tr>
+                <tr><td>migration</td>      <td class="num">22.5</td><td class="num">575</td><td class="num">167</td></tr>
+                <tr><td>healthcare</td>     <td class="num">19.2</td><td class="num">622</td><td class="num">148</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== Miss Rate by Language Direction ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Miss Rate by Language Direction</div>
+        </div>
+        <p class="section-desc">Share of glossary terms that were missed in each language direction.</p>
+
+        <div class="dual">
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Miss rate per language pair</div>
+                <div class="card-sub">Bar length = miss rate %.</div>
+              </div>
+            </div>
+            <div class="hbar-list">
+              <div class="hbar-row">
+                <div class="hbar-label">ru-RU → sv-SE</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:29%"></div></div>
+                <div class="hbar-value">29%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">ar-SA → sv-SE</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:27.3%"></div></div>
+                <div class="hbar-value">27.3%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">sv-SE → ar-SA</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:26.5%"></div></div>
+                <div class="hbar-value">26.5%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">sv-SE → es-ES</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:23.1%"></div></div>
+                <div class="hbar-value">23.1%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">sv-SE → ru-RU</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:14.1%"></div></div>
+                <div class="hbar-value">14.1%</div>
+              </div>
+              <div class="hbar-row">
+                <div class="hbar-label">es-ES → sv-SE</div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:12.9%"></div></div>
+                <div class="hbar-value">12.9%</div>
+              </div>
+              <div class="axis-row">
+                <div></div>
+                <div class="axis"><span>0%</span><span>20%</span><span>40%</span><span>60%</span><span>80%</span><span>100%</span></div>
+                <div></div>
+              </div>
+              <div style="font-size:11px; color: var(--ink-500); text-align:center; margin-top:4px">Miss Rate (%)</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">Language direction breakdown</div>
+                <div class="card-sub">Hits = correctly applied terms · Misses = terms that were missed.</div>
+              </div>
+            </div>
+            <table class="data">
+              <thead>
+                <tr>
+                  <th>Language direction</th>
+                  <th class="num">Miss rate (%)</th>
+                  <th class="num">Hits</th>
+                  <th class="num">Misses</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>ru-RU → sv-SE</td><td class="num">29</td>  <td class="num">298</td><td class="num">122</td></tr>
+                <tr><td>ar-SA → sv-SE</td><td class="num">27.3</td><td class="num">295</td><td class="num">111</td></tr>
+                <tr><td>sv-SE → ar-SA</td><td class="num">26.5</td><td class="num">504</td><td class="num">182</td></tr>
+                <tr><td>sv-SE → es-ES</td><td class="num">23.1</td><td class="num">495</td><td class="num">149</td></tr>
+                <tr><td>sv-SE → ru-RU</td><td class="num">14.1</td><td class="num">421</td><td class="num">69</td></tr>
+                <tr><td>es-ES → sv-SE</td><td class="num">12.9</td><td class="num">305</td><td class="num">45</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== Miss Rate Trend Over Time ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Miss Rate Trend Over Time</div>
+        </div>
+        <p class="section-desc">Miss rate per domain across runs. Each line shows how the miss rate has changed for one domain.</p>
+
+        <div class="card">
+          <div class="card-head">
+            <div>
+              <div class="card-title">Miss rate over time, by domain</div>
+              <div class="card-sub">Lower = fewer glossary terms missed.</div>
+            </div>
+          </div>
+
+          <svg class="linechart" viewBox="0 0 600 220" preserveAspectRatio="none" style="height:220px">
+            <g class="grid">
+              <line x1="50" y1="20"  x2="590" y2="20"/>
+              <line x1="50" y1="60"  x2="590" y2="60"/>
+              <line x1="50" y1="100" x2="590" y2="100"/>
+              <line x1="50" y1="140" x2="590" y2="140"/>
+              <line x1="50" y1="180" x2="590" y2="180"/>
+            </g>
+            <g class="axis">
+              <text x="6" y="24">100%</text>
+              <text x="6" y="64">80%</text>
+              <text x="6" y="104">60%</text>
+              <text x="6" y="144">40%</text>
+              <text x="6" y="184">20%</text>
+              <text x="6" y="200">0%</text>
+            </g>
+
+            <!-- All four domain lines clustered around 35-39%, slowly drifting down -->
+            <!-- employment ~24% -->
+            <polyline class="series-a" points="50,180 80,128 120,128 200,128 320,128 440,128 540,130 590,132" style="stroke:#4c1d95"/>
+            <!-- healthcare ~19.2% -->
+            <polyline class="series-b" points="50,180 80,138 120,138 200,138 320,138 440,138 540,140 590,142" style="stroke:#7c3aed"/>
+            <!-- migration ~22.5% -->
+            <polyline class="series-b" points="50,180 80,131 120,131 200,131 320,131 440,131 540,133 590,135" style="stroke:#a78bfa"/>
+            <!-- social_services ~25% -->
+            <polyline class="series-b" points="50,180 80,125 120,125 200,125 320,125 440,125 540,127 590,128" style="stroke:#c4b5fd"/>
+
+            <g class="axis">
+              <text x="50"  y="212">Apr 22, 2026 · 15:00</text>
+              <text x="290" y="212">Apr 23, 2026 · 00:00</text>
+              <text x="510" y="212">Apr 23, 2026 · 09:00</text>
+            </g>
+          </svg>
+
+          <div class="legend">
+            <span><span class="swatch" style="background:#4c1d95"></span>employment</span>
+            <span><span class="swatch" style="background:#7c3aed"></span>healthcare</span>
+            <span><span class="swatch" style="background:#a78bfa"></span>migration</span>
+            <span><span class="swatch" style="background:#c4b5fd"></span>social_services</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============== Term Performance ============== -->
+      <section class="section">
+        <div class="section-head">
+          <div class="section-title">Term Performance</div>
+        </div>
+        <p class="section-desc">Miss rates for individual glossary term pairs — filter by domain and language to inspect the most missed and best-performing terms.</p>
+
+        <div class="card" style="margin-bottom:14px">
+          <div class="filters" style="margin-bottom:0; box-shadow:none; border:none; padding:0;">
+            <div class="filter-field">
+              <span class="filter-label">Domain</span>
+              <div class="filter-control">
+                <span>employment</span>
+                <span class="caret">▾</span>
+              </div>
+            </div>
+            <div class="filter-field">
+              <span class="filter-label">Language direction</span>
+              <div class="filter-control">
+                <span>ar-SA → sv-SE</span>
+                <span class="caret">▾</span>
+              </div>
+            </div>
+            <div></div>
+          </div>
+        </div>
+
+        <div class="dual">
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">❌ Top 25 — most missed terms</div>
+                <div class="card-sub">Highest miss rate first. Each row is a glossary term pair.</div>
+              </div>
+            </div>
+            <div class="hbar-list">
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Etableringsplan ↔ خطة الترسيخ</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:63%"></div></div>
+                <div class="hbar-value">63%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Avslag ↔ رفض</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:32%"></div></div>
+                <div class="hbar-value">32%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Instegsjobb ↔ عمل مدعوم للوافدين الجدد</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:30%"></div></div>
+                <div class="hbar-value">30%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Kartläggning ↔ استطلاع</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:22%"></div></div>
+                <div class="hbar-value">22%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Arbetslöshetersättning ↔ تعويض البطالة</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:3%"></div></div>
+                <div class="hbar-value">3%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Kassakort ↔ بطاقة صندوق البطالة</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:2%"></div></div>
+                <div class="hbar-value">2%</div>
+              </div>
+              <div class="axis-row wide-label">
+                <div></div>
+                <div class="axis"><span>0%</span><span>20%</span><span>40%</span><span>60%</span><span>80%</span><span>100%</span></div>
+                <div></div>
+              </div>
+              <div style="font-size:11px; color: var(--ink-500); text-align:center; margin-top:4px">Miss Rate (%)</div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-head">
+              <div>
+                <div class="card-title">✅ Top 25 — highest hit rate</div>
+                <div class="card-sub">Highest hit rate first. Each row is a glossary term pair.</div>
+              </div>
+            </div>
+            <div class="hbar-list">
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Arbetslöshetersättning ↔ تعويض البطالة</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:100%"></div></div>
+                <div class="hbar-value">100%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Kassakort ↔ بطاقة صندوق البطالة</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:100%"></div></div>
+                <div class="hbar-value">100%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Kartläggning ↔ استطلاع</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:80%"></div></div>
+                <div class="hbar-value">80%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Instegsjobb ↔ عمل مدعوم للوافدين الجدد</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:75%"></div></div>
+                <div class="hbar-value">75%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Avslag ↔ رفض</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:70%"></div></div>
+                <div class="hbar-value">70%</div>
+              </div>
+              <div class="hbar-row wide-label">
+                <div class="hbar-label term-pair"><bdi>Etableringsplan ↔ خطة الترسيخ</bdi></div>
+                <div class="hbar-track"><div class="hbar-fill plain" style="width:38%"></div></div>
+                <div class="hbar-value">38%</div>
+              </div>
+              <div class="axis-row wide-label">
+                <div></div>
+                <div class="axis"><span>0%</span><span>20%</span><span>40%</span><span>60%</span><span>80%</span><span>100%</span></div>
+                <div></div>
+              </div>
+              <div style="font-size:11px; color: var(--ink-500); text-align:center; margin-top:4px">Hit Rate (%)</div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+    </main>
+  </div>
+</body>
+</html>
